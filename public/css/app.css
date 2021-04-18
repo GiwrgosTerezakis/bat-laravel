@@ -1,0 +1,46 @@
+.info-card{
+    position: absolute;
+    right: 8px;
+    top: 2px;
+}
+.card-body{
+    background-color: antiquewhite;
+    -webkit-box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 86%);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.86);
+    box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 86%)
+}
+.navbar-brand{
+    padding-right: 20px;
+    font-size: 22px !important;
+}
+.navbar-brand:hover{
+    color: antiquewhite !important;
+}
+.btn-primary.focus, .btn-primary:focus{
+    box-shadow: unset;
+}
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle{
+    background-color: black;
+    color: white;
+    border: none !important;
+    box-shadow: none !important;
+}
+.card-body:hover{
+    transition: all .45s ease-in-out;
+    -webkit-box-shadow: 0px 0px 4px 2px rgb(0 0 0 / 86%);
+    -moz-box-shadow: 0px 0px 4px 2px rgb(0 0 0 / 86%);
+    box-shadow: 0px 0px 4px 2px rgb(0 0 0 / 86%);
+}
+
+.bi-arrow-right{
+    top: -1px;
+    position: relative;
+}
+.btn-primary{
+    width: 50%;
+    background-color: black;
+    border: unset;
+}
+.btn-primary:hover{
+    background-color: #343a40;
+}
