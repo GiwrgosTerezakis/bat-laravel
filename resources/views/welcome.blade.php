@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+{{--    check gs--}}
     <nav class="navbar navbar-expand-bg navbar-dark bg-dark justify-content-md-center">
         <a class="navbar-brand" href="#">Code</a>
         <a class="navbar-brand" href="#">Home</a>
