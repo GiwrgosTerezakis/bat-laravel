@@ -17,5 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/compas',function (){
+    return view('compas');
+});
 
-Route::get('/get-info',[GetRegisterInfos::class,'index']);
