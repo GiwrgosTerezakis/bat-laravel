@@ -9,23 +9,21 @@
     </nav>
     <div class="container">
         <div class="mt-5">
-            <p>
+            <p class="introduction-p">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
                 industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
                 scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
                 into electronic typesetting, remaining essentially unchanged.
             </p>
         </div>
-        <div>
-            <img width="100%" class="mt-5" alt="" src="{{asset('img/biasreport.png')}}">
-        </div>
+
 
         <div class="row mt-5 text-center">
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body rounded ">
                         <a class="info-card" href="https://www.propublica.org/article/how-we-analyzed-the-compas-recidivism-algorithm">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="black"
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white"
                                  class="bi bi-info-circle" viewBox="0 0 16 16">
                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                 <path
@@ -47,7 +45,7 @@
                 <div class="card">
                     <div class="card-body rounded">
                         <a class="info-card" href="https://www.kaggle.com/uciml/german-credit">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="black"
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white"
                                  class="bi bi-info-circle" viewBox="0 0 16 16">
                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                 <path
@@ -67,7 +65,7 @@
                 </div>
             </div>
         </div>
-        <div style="text-align: center" class="mt-5">
+        <div style="text-align: center;color: black" class="mt-5">
             © 2020 Research of a System for Βias Identification in Machine Learning, University of Patras
         </div>
     </div>
