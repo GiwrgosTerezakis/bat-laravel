@@ -65,13 +65,7 @@
                                 <div class="col-sm-6">
                                     <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
                                         <label class="btn btn-sm btn-primary btn-simple active" id="0">
-                                            <input type="radio" name="options" autocomplete="off" checked> Logistic Regression
-                                        </label>
-                                        <label class="btn btn-sm btn-primary btn-simple " id="1">
-                                            <input type="radio" name="options" autocomplete="off"> SVM
-                                        </label>
-                                        <label class="btn btn-sm btn-primary btn-simple " id="2">
-                                            <input type="radio" name="options" autocomplete="off"> XGBoost
+                                            <input type="radio" name="options" autocomplete="off" checked> ML Models
                                         </label>
                                     </div>
                                 </div>
@@ -79,6 +73,7 @@
                         </div>
                         <div class="card-body">
                             <div class="chart-area">
+                                <div class="lds-dual-ring"></div>
                                 <canvas id="chartBig1"></canvas>
                             </div>
                         </div>
@@ -86,20 +81,8 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="card card-chart">
-                        <div class="card-header ">
-                            <h5 class="card-category">Total Shipments</h5>
-                            <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary "></i> 763,215</h3>
-                        </div>
-                        <div class="card-body ">
-                            <div class="chart-area">
-                                <canvas id="chartLinePurple"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
+
+                <div class="col-lg-6">
                     <div class="card card-chart">
                         <div class="card-header ">
                             <h5 class="card-category">Total People</h5>
@@ -119,10 +102,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                     <div class="card card-chart">
                         <div class="card-header ">
-                            <h5 class="card-category">Completed Tasks</h5>
+                            <h5 class="card-category">Race</h5>
                             <h3 class="card-title"><i class="tim-icons icon-send text-success "></i> 12,100K</h3>
                         </div>
                         <div class="card-body ">

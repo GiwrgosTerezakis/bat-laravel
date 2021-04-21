@@ -26,6 +26,39 @@
   width: 260px;
   text-transform: none;
 }
+.basel-spinner.ajax-call:after {
+    position:fixed;
+    top:4%;
+    left:50%;
+    margin:-18px auto auto -18px;
+}
+.basel-spinner:after {
+    content:"";
+    display:inline-block;
+    border: 2px solid #cccccc;
+    border-top: 2px solid #333333;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    animation: spin 500ms linear infinite;
+}
+
+.basel-spinner.ajax-call {
+    position:fixed;
+    z-index:999;
+    top:4%;
+    left:50%;
+    width:80px;
+    height:80px;
+    display:inline-block;
+    background:transparent;
+    border-radius:3px;
+    margin:-40px auto auto -40px;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 
 .tim-row {
   padding-top: 60px;
