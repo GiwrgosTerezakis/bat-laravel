@@ -229,7 +229,7 @@ $.ajax({
             myChartData.data.datasets[1].hidden = false;
             myChartData.data.datasets[0].hidden = true;
             myChartData.data.datasets[2].hidden = true;
-            $('#firstChart').html('Disparate Impact Race');
+            $('#firstChart').html('Disparate Impact Race <h5 class="card-category">unprivileged group: African-American <br>privileged group: Caucasian </h5>');
             myChartData.update();
         });
         $('#dig').click(function() {
@@ -238,7 +238,7 @@ $.ajax({
             myChartData.data.datasets[2].hidden = false;
             myChartData.data.datasets[0].hidden = true;
             myChartData.data.datasets[1].hidden = true;
-            $('#firstChart').html('Disparate Impact Gender');
+            $('#firstChart').html('Disparate Impact Gender <h5 class="card-category">unprivileged group: Male <br>privileged group: Female </h5>');
             myChartData.update();
         });
 
