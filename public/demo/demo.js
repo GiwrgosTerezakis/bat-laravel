@@ -94,7 +94,7 @@ $.ajax({
     type: 'GET',
     dataType: 'json',
     beforeSend: function() {
-        $('body').append('<span class="basel-spinner ajax-call"></span>');
+        $('#chart1-area').append('<span class="basel-spinner ajax-call"></span>');
     },
     success: (data) => {
         $('.basel-spinner.ajax-call').remove();

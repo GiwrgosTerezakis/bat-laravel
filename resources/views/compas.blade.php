@@ -80,7 +80,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="chart-area">
+                            <div class="chart-area" id="chart1-area">
                                 <div class="lds-dual-ring"></div>
                                 <canvas id="chartBig1"></canvas>
                             </div>

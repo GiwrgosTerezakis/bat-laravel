@@ -28,7 +28,7 @@
 }
 .basel-spinner.ajax-call:after {
     position:fixed;
-    top:4%;
+    top:33%;
     left:50%;
     margin:-18px auto auto -18px;
 }
@@ -44,10 +44,7 @@
 }
 
 .basel-spinner.ajax-call {
-    position:fixed;
     z-index:999;
-    top:4%;
-    left:50%;
     width:80px;
     height:80px;
     display:inline-block;
