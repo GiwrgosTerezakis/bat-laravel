@@ -11,7 +11,7 @@ $.ajax({
         // data.forEach(function (arrItem) {
         //     console.log(arrItem.model)  ;
         // });
-        var ctx = document.getElementById("CountryChart").getContext("2d");
+        var ctx = document.getElementById("GenderChart").getContext("2d");
 
         var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
 
@@ -55,9 +55,6 @@ $.ajax({
             values.push(value);
         }
 
-
-        console.log(res);
-
         var ctxGreen = document.getElementById("chartLineGreen").getContext("2d");
 
         var gradientStroke = ctxGreen.createLinearGradient(0, 230, 0, 50);
@@ -71,26 +68,22 @@ $.ajax({
             datasets: [{
                 label: "My First dataset",
                 fill: true,
-                backgroundColor: [gradientStroke,'red','green'],
-                borderColor: '#00d6b4',
-                borderWidth: 2,
-                borderDash: [],
-                borderDashOffset: 0.0,
-                pointBackgroundColor: '#00d6b4',
-                pointBorderColor: 'rgba(255,255,255,0)',
-                pointHoverBackgroundColor: '#00d6b4',
-                pointBorderWidth: 20,
-                pointHoverRadius: 4,
-                pointHoverBorderWidth: 15,
-                pointRadius: 4,
+                backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 86)',
+                    'rgb(71, 179, 156)',
+                    'rgb(113,105,100)',
+                    'rgb(94,52,31)'
+                ],
+                hoverOffset: 4,
                 data: values,
             }]
         };
 
         var myChart = new Chart(ctxGreen, {
-            type: 'pie',
+            type: 'doughnut',
             data: data,
-            options: gradientChartOptionsConfigurationWithTooltipGreen
 
         });
     }
@@ -105,52 +98,153 @@ $.ajax({
     },
     success: (data) => {
         $('.basel-spinner.ajax-call').remove();
+        $('#firstChart').html('Accuracy');
         var models = [];
         var accs = [];
+        var dig = [];
+        var dir = [];
         data.forEach(function (arrItem) {
             models.push(arrItem.model);
             accs.push(arrItem.acc);
+            dir.push(arrItem.DIRace)
+            dig.push(arrItem.DIGender)
         });
 
         var chart_labels = models;
         var chart_data = accs;
+        var chart_data1 = dir;
+        var chart_data2 = dig;
 
 
         var ctx = document.getElementById("chartBig1").getContext('2d');
 
-        var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
 
-        gradientStroke.addColorStop(1, 'rgba(72,72,176,0.1)');
-        gradientStroke.addColorStop(0.4, 'rgba(72,72,176,0.0)');
-        gradientStroke.addColorStop(0, 'rgba(119,52,169,0)'); //purple colors
         var config = {
-            type: 'line',
             data: {
                 labels: chart_labels,
                 datasets: [{
+                    type: 'line',
+                    hidden: false,
                     label: "Accuracy",
                     fill: true,
-                    backgroundColor: gradientStroke,
-                    borderColor: '#ffffff',
+                    backgroundColor: 'transparent',
+                    borderColor: 'rgba(75, 192, 192, 0.2)',
                     borderWidth: 2,
                     borderDash: [],
                     borderDashOffset: 0.0,
-                    pointBackgroundColor: '#ffffff',
-                    pointBorderColor: 'rgba(255,255,255,0)',
-                    pointHoverBackgroundColor: '#ffffff',
-                    pointBorderWidth: 20,
+                    pointBackgroundColor: 'white',
+                    pointBorderColor: 'white',
+                    pointHoverBackgroundColor: 'transparent',
+                    pointBorderWidth: 5,
                     pointHoverRadius: 4,
                     pointHoverBorderWidth: 15,
                     pointRadius: 4,
                     data: chart_data,
-                }]
+                    order: 2,
+                },
+                    {
+                        hidden: true,
+                        type: 'line',
+                        label: "Disparate Impact Race",
+                        fill: true,
+                        backgroundColor: 'transparent',
+                        borderColor: 'rgba(75, 192, 192, 0.8)',
+                        borderWidth: 2,
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        pointBackgroundColor: 'white',
+                        pointBorderColor: 'rgba(255,255,255,0)',
+                        pointHoverBackgroundColor: 'red',
+                        pointBorderWidth: 5,
+                        pointHoverRadius: 4,
+                        pointHoverBorderWidth: 15,
+                        pointRadius: 4,
+                        data: chart_data1,
+                        order: 1,
+                    },
+                    {
+                        hidden: true,
+                        type: 'line',
+                        label: "Disparate Impact Race",
+                        fill: true,
+                        backgroundColor: 'transparent',
+                        borderColor: 'rgba(75, 192, 192, 0.8)',
+                        borderWidth: 2,
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        pointBackgroundColor: 'white',
+                        pointBorderColor: 'rgba(255,255,255,0)',
+                        pointHoverBackgroundColor: 'red',
+                        pointBorderWidth: 5,
+                        pointHoverRadius: 4,
+                        pointHoverBorderWidth: 15,
+                        pointRadius: 4,
+                        data: chart_data2,
+                        order: 1,
+                    },
+                    {
+                        hidden: true,
+                        fill: false,
+                        borderColor: 'rgba(226,226,226,0.8)',
+                        type: 'line',
+                        label: 'Upper Acceptable Line',
+                        pointBackgroundColor: 'transparent',
+                        pointBorderColor: 'transparent',
+                        pointBorderWidth: 0,
+                        backgroundColor: 'transparent',
+                        data: [1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2],
+                        order: 2,
+                    },
+                    {
+                        hidden: true,
+                        fill: false,
+                        borderColor: 'rgba(226,226,226,0.8)',
+                        type: 'line',
+                        pointBorderWidth: 0,
+                        pointBackgroundColor: 'transparent',
+                        pointBorderColor: 'transparent',
+                        label: 'Lower Acceptable Line',
+                        backgroundColor: 'transparent',
+                        data: [0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8],
+                        order: 2,
+                    }
+                ]
             },
             options: gradientChartOptionsConfigurationWithTooltipPurple
         };
         var myChartData = new Chart(ctx, config);
 
+        $('#chacc').click(function() {
+            myChartData.data.datasets[3].hidden = true;
+            myChartData.data.datasets[4].hidden = true;
+            myChartData.data.datasets[0].hidden = false;
+            myChartData.data.datasets[1].hidden = true;
+            myChartData.data.datasets[2].hidden = true;
+            $('#firstChart').html('Accuracy');
+            myChartData.update();
+        });
+        $('#dir').click(function() {
+            myChartData.data.datasets[3].hidden = false;
+            myChartData.data.datasets[4].hidden = false;
+            myChartData.data.datasets[1].hidden = false;
+            myChartData.data.datasets[0].hidden = true;
+            myChartData.data.datasets[2].hidden = true;
+            $('#firstChart').html('Disparate Impact Race');
+            myChartData.update();
+        });
+        $('#dig').click(function() {
+            myChartData.data.datasets[3].hidden = false;
+            myChartData.data.datasets[4].hidden = false;
+            myChartData.data.datasets[2].hidden = false;
+            myChartData.data.datasets[0].hidden = true;
+            myChartData.data.datasets[1].hidden = true;
+            $('#firstChart').html('Disparate Impact Gender');
+            myChartData.update();
+        });
+
     }
 });
+
 
 demo = {
   initPickColor: function() {
@@ -297,29 +391,28 @@ demo = {
       scales: {
         yAxes: [{
           barPercentage: 1.6,
-          gridLines: {
-            drawBorder: false,
-            color: 'rgba(29,140,248,0.0)',
-            zeroLineColor: "transparent",
-          },
-          ticks: {
-            suggestedMin: 0,
+            gridLines: {
+                drawBorder: true,
+                color: 'rgba(201,195,194,0.2)',
+            },
+        ticks:{
+            beginAtZero: true,
             suggestedMax: 1,
-            padding: 20,
-            fontColor: "#9a9a9a"
-          }
-        }],
+            stepSize: 0.25,
+            fontColor: '#ffffff'
+        }
+        },],
 
         xAxes: [{
-          barPercentage: 1.6,
+          barPercentage: 0.8,
           gridLines: {
             drawBorder: false,
-            color: 'rgba(225,78,202,0.1)',
-            zeroLineColor: "transparent",
+            color: 'rgba(201,195,194,0.2)',
+            zeroLineColor: "white",
           },
           ticks: {
-            padding: 20,
-            fontColor: "#9a9a9a"
+            padding: 10,
+            fontColor: "#ffffff"
           }
         }]
       }
@@ -475,8 +568,6 @@ demo = {
       data: data,
       options: gradientChartOptionsConfigurationWithTooltipPurple
     });
-
-
 
 
 

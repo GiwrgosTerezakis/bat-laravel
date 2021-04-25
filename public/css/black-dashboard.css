@@ -27,7 +27,25 @@ Licensed under the MIT license - http://opensource.org/licenses/MIT
 
 Copyright (c) 2015 Daniel Eden
 */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #62b49c;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #62b49c;
+}
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -3807,6 +3825,8 @@ img {
 .table-responsive {
   overflow: scroll;
   padding-bottom: 10px;
+    max-height: 540px;
+    overflow-x: hidden;
 }
 
 #tables .table-responsive {
@@ -3921,6 +3941,9 @@ table.tablesorter thead tr .headerSortDown {
   right: 20px;
   top: 2px;
   opacity: 1;
+}
+.grid-holder-title{
+    display: none;
 }
 
 .sidebar .logo-tim,
@@ -4650,7 +4673,7 @@ table.tablesorter thead tr .headerSortDown {
 }
 
 .card {
-  background: #27293d;
+    background: radial-gradient(black, transparent);
   border: 0;
   border-radius: 0.2857rem;
   position: relative;
@@ -4811,8 +4834,14 @@ table.tablesorter thead tr .headerSortDown {
 }
 
 .card-chart .chart-area {
-  height: 220px;
   width: 100%;
+}
+#chartBig1{
+    height: 350px !important;
+}
+
+#GenderChart{
+    height: 291px !important;
 }
 
 .card-chart .card-footer {
@@ -5541,6 +5570,25 @@ table.tablesorter thead tr .headerSortDown {
 }
 
 @media screen and (max-width: 768px) {
+    .nav-desktop{
+        display: none;
+    }
+    .grid-holder-title{
+        display: block;
+        padding: 0 25px;
+        text-align: center;
+        position: fixed;
+        margin-top: 10px;
+        z-index: 100;
+    }
+    .table-responsive{
+        overflow-x: scroll !important;
+    }
+.buttons-to-select{
+    display: inline-block;
+    float: unset !important;
+}
+
   .nav-tabs {
     display: inline-block;
     width: 100%;

@@ -17,7 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/compas',function (){
-    return view('compas');
-});
+Route::get('/compas',[\App\Http\Controllers\compasAnalysis::class, 'index']);
 

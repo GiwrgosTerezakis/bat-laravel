@@ -28,14 +28,16 @@
 
     <div class="main-panel">
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent   ">
+        <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent nav-desktop  ">
             <div class="container-fluid">
                 <div class="navbar-wrapper">
-                    <a class="navbar-brand" href="#pablo">Compas | Recidivism Risk Score Data and Analysis</a>
+                    <a class="navbar-brand" href="#">Compas | Recidivism Risk Score Data and Analysis</a>
                 </div>
-
             </div>
         </nav>
+        <div class="grid-holder-title col-12">
+            <h5>Compas | Recidivism Risk Score Data and Analysis </h5>
+        </div>
         <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal"
              aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -60,12 +62,18 @@
                             <div class="row">
                                 <div class="col-sm-6 text-left">
                                     <h5 class="card-category">ML Models</h5>
-                                    <h2 class="card-title">Performance</h2>
+                                    <h2 class="card-title" id="firstChart"></h2>
                                 </div>
                                 <div class="col-sm-6">
-                                    <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
-                                        <label class="btn btn-sm btn-primary btn-simple active" id="0">
-                                            <input type="radio" name="options" autocomplete="off" checked> ML Models
+                                    <div class="btn-group btn-group-toggle float-right buttons-to-select" data-toggle="buttons">
+                                        <label class="btn btn-sm btn-primary btn-simple active" id="chacc">
+                                            <input type="radio" name="options" autocomplete="off" checked> Accuracy
+                                        </label>
+                                        <label class="btn btn-sm btn-primary btn-simple " id="dig">
+                                            <input type="radio" name="options" autocomplete="off" > Disparate Impact Gender
+                                        </label>
+                                        <label class="btn btn-sm btn-primary btn-simple " id="dir">
+                                            <input type="radio" name="options" autocomplete="off" > Disparate Impact Race
                                         </label>
                                     </div>
                                 </div>
@@ -85,6 +93,8 @@
                 <div class="col-lg-6">
                     <div class="card card-chart">
                         <div class="card-header ">
+                            <h5 class="card-category">Attribute</h5>
+                            <h2 class="card-title" >Gender</h2>
                             <h5 class="card-category">Total People</h5>
                             <h3 class="card-title"><i class="tim-icons text-info ">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -92,12 +102,12 @@
                                         <path
                                             d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
                                     </svg>
-                                </i> 10000
+                                </i> 7214
                             </h3>
                         </div>
                         <div class="card-body ">
                             <div class="chart-area">
-                                <canvas id="CountryChart"></canvas>
+                                <canvas id="GenderChart"></canvas>
                             </div>
                         </div>
                     </div>
@@ -105,8 +115,8 @@
                 <div class="col-lg-6">
                     <div class="card card-chart">
                         <div class="card-header ">
-                            <h5 class="card-category">Race</h5>
-                            <h3 class="card-title"><i class="tim-icons icon-send text-success "></i> 12,100K</h3>
+                            <h5 class="card-category">Attribute</h5>
+                            <h2 class="card-title" >Race</h2>
                         </div>
                         <div class="card-body ">
                             <div class="chart-area">
@@ -120,124 +130,48 @@
                 <div class="col-lg-12 col-md-12">
                     <div class="card ">
                         <div class="card-header">
-                            <h4 class="card-title"> Sample Dataset</h4>
+                            <h4 class="card-title"> Dataset</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table tablesorter " id="">
                                     <thead class=" text-primary">
+                                    @foreach($thnames as $thname )
                                     <th>
-                                        Name
+                                        {{$thname}}
                                     </th>
-                                    <th>
-                                        Country
-                                    </th>
-                                    <th>
-                                        City
-                                    </th>
-                                    <th class="text-center">
-                                        Salary
-                                    </th>
+                                    @endforeach
                                     </thead>
                                     <tbody>
+                                    @foreach($sampleData as $key => $sample)
+
                                     <tr>
                                         <td>
-                                            Dakota Rice
+                                            {{$key}}
                                         </td>
                                         <td>
-                                            Niger
+                                            {{$sample['name']}}
                                         </td>
                                         <td>
-                                            Oud-Turnhout
+                                            {{$sample['sex']}}
                                         </td>
-                                        <td class="text-center">
-                                            $36,738
+                                        <td>
+                                            {{$sample['age']}}
+                                        </td>
+                                        <td >
+                                            {{$sample['race']}}
+                                        </td>
+                                        <td >
+                                            {{$sample['charge_degree']}}
+                                        </td>
+                                        <td >
+                                            {{$sample['charge_desc']}}
+                                        </td>
+                                        <td >
+                                            {{$sample['two_year_recid']}}
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            Minerva Hooper
-                                        </td>
-                                        <td>
-                                            Curaçao
-                                        </td>
-                                        <td>
-                                            Sinaai-Waas
-                                        </td>
-                                        <td class="text-center">
-                                            $23,789
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Sage Rodriguez
-                                        </td>
-                                        <td>
-                                            Netherlands
-                                        </td>
-                                        <td>
-                                            Baileux
-                                        </td>
-                                        <td class="text-center">
-                                            $56,142
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Philip Chaney
-                                        </td>
-                                        <td>
-                                            Korea, South
-                                        </td>
-                                        <td>
-                                            Overland Park
-                                        </td>
-                                        <td class="text-center">
-                                            $38,735
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Doris Greene
-                                        </td>
-                                        <td>
-                                            Malawi
-                                        </td>
-                                        <td>
-                                            Feldkirchen in Kärnten
-                                        </td>
-                                        <td class="text-center">
-                                            $63,542
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Mason Porter
-                                        </td>
-                                        <td>
-                                            Chile
-                                        </td>
-                                        <td>
-                                            Gloucester
-                                        </td>
-                                        <td class="text-center">
-                                            $78,615
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Jon Porter
-                                        </td>
-                                        <td>
-                                            Portugal
-                                        </td>
-                                        <td>
-                                            Gloucester
-                                        </td>
-                                        <td class="text-center">
-                                            $98,615
-                                        </td>
-                                    </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -255,6 +189,7 @@
                     </script>
                     by Research of a System for Βias Identification in Machine Learning, University of Patras
                 </div>
+            </div>
         </footer>
     </div>
 </div>

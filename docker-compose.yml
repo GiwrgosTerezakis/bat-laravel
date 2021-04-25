@@ -19,8 +19,10 @@ services:
       - PHP_UPLOAD_MAX_FILESIZE=1024M
       - PHP_DEBUGGER=xdebug
       - XDEBUG_REMOTE_CONNECT_BACK=0
-      - XDEBUG_REMOTE_HOST=192.168.1.2
+      - XDEBUG_REMOTE_HOST=192.168.1.23
       - XDEBUG_REMOTE_PORT=9000
+      - XDEBUG_CLIENT_PORT=9000
+      - XDEBUG_CLIENT_HOST=192.168.1.23
       - php.xdebug.remote_enable=1
       - php.xdebug.idekey=PHPSTORM
     ports:
