@@ -391,10 +391,6 @@ demo = {
       scales: {
         yAxes: [{
           barPercentage: 1.6,
-            gridLines: {
-                drawBorder: true,
-                color: 'rgba(201,195,194,0.2)',
-            },
         ticks:{
             beginAtZero: true,
             suggestedMax: 1,
