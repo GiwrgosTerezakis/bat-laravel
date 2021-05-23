@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <title>
-        Compas
+        German Credit Risk
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
           name='viewport'/>
@@ -31,7 +31,7 @@
         <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent nav-desktop  ">
             <div class="container-fluid">
                 <div class="navbar-wrapper">
-                    <a class="navbar-brand" href="#">Compas | Recidivism Risk Score Data and Analysis</a>
+                    <a class="navbar-brand" href="#">German Credit Risk</a>
                 </div>
             </div>
         </nav>
@@ -39,7 +39,7 @@
             <a href="/"> HOME </a>
         </div>
         <div class="grid-holder-title col-12">
-            <h5>Compas | Recidivism Risk Score Data and Analysis </h5>
+            <h5>German Credit Risk </h5>
         </div>
         <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal"
              aria-hidden="true">
@@ -76,7 +76,7 @@
                                             <input type="radio" name="options" autocomplete="off" > Disparate Impact Gender
                                         </label>
                                         <label class="btn btn-sm btn-primary btn-simple " id="dir">
-                                            <input type="radio" name="options" autocomplete="off" > Disparate Impact Race
+                                            <input type="radio" name="options" autocomplete="off" > Disparate Impact Age
                                         </label>
                                     </div>
                                 </div>
@@ -105,7 +105,7 @@
                                         <path
                                             d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
                                     </svg>
-                                </i> 7214
+                                </i> 1000
                             </h3>
                         </div>
                         <div class="card-body ">
@@ -119,7 +119,7 @@
                     <div class="card card-chart">
                         <div class="card-header ">
                             <h5 class="card-category">Attribute</h5>
-                            <h2 class="card-title" >Race</h2>
+                            <h2 class="card-title" >Risk</h2>
                         </div>
                         <div class="card-body ">
                             <div class="chart-area">
@@ -140,40 +140,49 @@
                                 <table class="table tablesorter " id="">
                                     <thead class=" text-primary">
                                     @foreach($thNames as $thname )
-                                    <th>
-                                        {{$thname}}
-                                    </th>
+                                        <th>
+                                            {{$thname}}
+                                        </th>
                                     @endforeach
                                     </thead>
                                     <tbody>
                                     @foreach($sampleData as $key => $sample)
 
-                                    <tr>
-                                        <td>
-                                            {{$key + 1}}
-                                        </td>
-                                        <td style="text-transform: capitalize;">
-                                            {{$sample['name']}}
-                                        </td>
-                                        <td>
-                                            {{$sample['sex']}}
-                                        </td>
-                                        <td>
-                                            {{$sample['age']}}
-                                        </td>
-                                        <td >
-                                            {{$sample['race']}}
-                                        </td>
-                                        <td >
-                                            {{$sample['charge_degree']}}
-                                        </td>
-                                        <td >
-                                            {{$sample['charge_desc']}}
-                                        </td>
-                                        <td >
-                                            {{$sample['two_year_recid']}}
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td>
+                                                {{$key + 1}}
+                                            </td>
+                                            <td style="text-transform: capitalize;">
+                                                {{$sample['age']}}
+                                            </td>
+                                            <td>
+                                                {{$sample['sex']}}
+                                            </td>
+                                            <td>
+                                                {{$sample['job']}}
+                                            </td>
+                                            <td >
+                                                {{$sample['housing']}}
+                                            </td>
+                                            <td >
+                                                {{$sample['saving_accounts']}}
+                                            </td>
+                                            <td >
+                                                {{$sample['checking_account']}}
+                                            </td>
+                                            <td >
+                                                {{$sample['credit_amount']}}
+                                            </td>
+                                            <td >
+                                                {{$sample['duration']}}
+                                            </td>
+                                            <td >
+                                                {{$sample['purpose']}}
+                                            </td>
+                                            <td >
+                                                {{$sample['risk']}}
+                                            </td>
+                                        </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
@@ -211,7 +220,7 @@
 <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="/js/black-dashboard.min.js?v=1.0.0" type="text/javascript"></script>
 <!-- Black Dashboard DEMO methods, don't include it in your project! -->
-<script src="/demo/demo.js"></script>
+<script src="/german/german.js"></script>
 <script>
     $(document).ready(function () {
         $().ready(function () {

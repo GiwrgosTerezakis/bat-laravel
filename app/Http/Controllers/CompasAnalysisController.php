@@ -5,15 +5,15 @@ use Spatie\SimpleExcel\SimpleExcelReader;
 
 use Illuminate\Http\Request;
 
-class compasAnalysis extends Controller
+class CompasAnalysisController extends Controller
 {
     public function  index(){
         $i = -1;
-        $arrayToTable = [];
+        $sampleData = [];
         $rows = SimpleExcelReader::create( public_path(). '/csv/compasAnalysis.csv' )->getRows();
         foreach ($rows as $row){
             $i++;
-            $arrayToTable[] = array(
+            $sampleData[] = array(
                 'name' => $row['name'],
                 'sex' =>    $row['sex'],
                 'age' =>    $row['age'],
@@ -26,6 +26,7 @@ class compasAnalysis extends Controller
         }
         $thNames = ['#','Name','Sex','Age','Race','Charge Degree','Charge Description','Two years Recidivism'];
 
-        return view('compas')->with('sampleData', $arrayToTable)->with('thnames',$thNames);
+
+        return view('compas')->with(compact('sampleData','thNames'));
     }
 }

@@ -17,5 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/compas',[\App\Http\Controllers\compasAnalysis::class, 'index']);
-
+Route::get('/compas-analysis',[\App\Http\Controllers\CompasAnalysisController::class, 'index']);
+Route::get('/german-analysis',[\App\Http\Controllers\GermanAnalysisController::class, 'index']);
