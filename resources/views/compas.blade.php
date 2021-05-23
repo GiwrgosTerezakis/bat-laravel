@@ -11,16 +11,12 @@
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
           name='viewport'/>
-    <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet"/>
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-    <!-- Nucleo Icons -->
     <link href="/css/nucleo-icons.css" rel="stylesheet"/>
-    <!-- CSS Files -->
     <link href="/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="/css/black-dashboard.css?v=1.0.0" rel="stylesheet"/>
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="/demo/demo.css" rel="stylesheet"/>
+    <link href="/custom/custom.css" rel="stylesheet"/>
 </head>
 
 <body class=" ">
@@ -197,21 +193,14 @@
     </div>
 </div>
 
-<!--   Core JS Files   -->
 <script src="/js/core/jquery.min.js"></script>
 <script src="/js/core/popper.min.js"></script>
 <script src="/js/core/bootstrap.min.js"></script>
 <script src="/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-<!--  Google Maps Plugin    -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-<!-- Chart JS -->
 <script src="/js/plugins/chartjs.min.js"></script>
-<!--  Notifications Plugin    -->
 <script src="/js/plugins/bootstrap-notify.js"></script>
-<!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="/js/black-dashboard.min.js?v=1.0.0" type="text/javascript"></script>
-<!-- Black Dashboard DEMO methods, don't include it in your project! -->
-<script src="/demo/demo.js"></script>
+<script src="/custom/custom.js"></script>
 <script>
     $(document).ready(function () {
         $().ready(function () {
@@ -324,9 +313,7 @@
 </script>
 <script>
     $(document).ready(function () {
-        // Javascript method's body can be found in assets/js/demos.js
-        demo.initDashboardPageCharts();
-
+        custom.initDashboardPageCharts();
     });
 </script>
 </body>
