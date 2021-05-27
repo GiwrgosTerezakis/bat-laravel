@@ -1,8 +1,10 @@
+## https://server3-test.herokuapp.com/
+
 ## Install Docker
 (https://docs.docker.com/get-docker/)
 
 Change permissions to act as root on Docker, otherwise you have to use sudo.
-## Building Server3
+## Building BAT
     - cp .env.example .env
     - (sudo) docker-compose up -d --build
     - (sudo) docker exec -it bat_web bash
