@@ -15,23 +15,41 @@ body {
 }
 .card{
     background: #27293d;
-    border: 0;
-    border-radius: 0.2857rem;
     position: relative;
     width: 100%;
     margin-bottom: 30px;
-    box-shadow: 0 1px 20px 0px rgb(0 0 0 / 10%)
+    -webkit-box-shadow: 6px 7px 0 0 rgb(51 50 52);
+    -moz-box-shadow: 6px 7px 0 0 rgba(51,50,52,1);
+    box-shadow: 6px 7px 0 0 rgb(51 50 52);
+    min-height: 200px;
+    border-radius: 0 !important;
+}
+.input-excel{
+    margin: 0 auto;
+}
+.btn-import-excel {
+    background: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 20px 60px;
+    color: #333234;
+    text-transform: uppercase;
+    margin: 40px auto 20px;
+    display: block;
+    border: 2px solid #333234;
+    -webkit-box-shadow: 6px 7px 0 0 rgb(51 50 52);
+    -moz-box-shadow: 6px 7px 0 0 rgba(51,50,52,1);
+    box-shadow: 6px 7px 0 0 rgb(51 50 52);
+    transition: 300ms ease-in-out;
+}
+.btn-import-excel:hover{
+    background: lightgrey;
 }
 .card-body{
-    background: radial-gradient(black, transparent);
-    -webkit-box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 86%);
-    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.86);
-    box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 86%)
+    background: wheat;
+    color: black;
 }
-.bg-dark {
-    background-color: #343a40!important;
-    background: radial-gradient(black, transparent);
-}
+
 .navbar-brand{
     padding-right: 20px;
     font-size: 22px !important;
@@ -48,6 +66,10 @@ body {
     border: none !important;
     box-shadow: none !important;
 }
+.card-text{
+    color: black;
+    min-height: 55px;
+}
 
 
 .bi-arrow-right{
@@ -56,10 +78,10 @@ body {
 }
 .btn-primary{
     width: 50%;
-    background-color: transparent;
-    border: 1px solid white;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    border-radius: 0;
 }
 .btn-primary:hover{
     background-color: white;

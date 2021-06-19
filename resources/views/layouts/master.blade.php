@@ -27,5 +27,8 @@
 </html>
 
 <script>
-
+$('#modal-to-close').on('click',function ()
+{
+  $('#modalLoginForm').remove();
+});
 </script>

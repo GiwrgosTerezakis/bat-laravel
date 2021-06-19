@@ -19,3 +19,5 @@ Route::get('/', function () {
 });
 Route::get('/compas-analysis',[\App\Http\Controllers\CompasAnalysisController::class, 'index']);
 Route::get('/german-analysis',[\App\Http\Controllers\GermanAnalysisController::class, 'index']);
+Route::post('/uploadFile', [\App\Http\Controllers\UploadFileController::class, 'uploadFile'])->name('uploadFile');
+Route::post('/postToDjango', [\App\Http\Controllers\UploadFileController::class, 'postToDjango'])->name('postToDjango');
