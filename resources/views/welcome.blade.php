@@ -112,7 +112,7 @@
                                                 <span style="color: black!important;" aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        <form action="{{route('postToDjango')}}" enctype='multipart/form-data'
+                                        <form action="/postToDjango" enctype='multipart/form-data'
                                               method="post" style="margin: 25px;">
                                             {{csrf_field()}}
                                         <div class="modal-body mx-3">
@@ -171,7 +171,7 @@
                     @endif
                     <!-- Alert message (end) -->
 
-                        <form action="{{route('uploadFile')}}" enctype='multipart/form-data' method="post" style="margin: 25px;">
+                        <form action="/uploadFile" enctype='multipart/form-data' method="post" style="margin: 25px;">
                             {{csrf_field()}}
                             <div class="form-group">
                                 <div class="col-lg-6 input-excel">
