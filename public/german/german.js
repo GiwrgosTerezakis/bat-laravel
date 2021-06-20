@@ -165,65 +165,36 @@ $.ajax({
 
 
         var config = {
+            type: 'bar',
             data: {
                 labels: chart_labels,
                 datasets: [{
-                    type: 'line',
                     hidden: false,
                     label: "Accuracy",
                     fill: true,
-                    backgroundColor: 'transparent',
-                    borderColor: 'rgba(75, 192, 192, 0.2)',
-                    borderWidth: 2,
-                    borderDash: [],
-                    borderDashOffset: 0.0,
-                    pointBackgroundColor: 'white',
-                    pointBorderColor: 'white',
-                    pointHoverBackgroundColor: 'transparent',
-                    pointBorderWidth: 5,
-                    pointHoverRadius: 4,
-                    pointHoverBorderWidth: 15,
-                    pointRadius: 4,
+                    backgroundColor: 'rgba(75, 192, 192, 0.8)',
+                    borderColor: 'rgba(75, 192, 192, 0.8)',
+                    borderWidth: 1,
                     data: chart_data,
                     order: 2,
                 },
                     {
                         hidden: true,
-                        type: 'line',
-                        label: "Disparate Impact Age",
+                        label: "Disparate Impact Race",
                         fill: true,
-                        backgroundColor: 'transparent',
+                        backgroundColor: 'rgba(75, 192, 192, 0.8)',
                         borderColor: 'rgba(75, 192, 192, 0.8)',
-                        borderWidth: 2,
-                        borderDash: [],
-                        borderDashOffset: 0.0,
-                        pointBackgroundColor: 'white',
-                        pointBorderColor: 'rgba(255,255,255,0)',
-                        pointHoverBackgroundColor: 'red',
-                        pointBorderWidth: 5,
-                        pointHoverRadius: 4,
-                        pointHoverBorderWidth: 15,
-                        pointRadius: 4,
+                        borderWidth: 1,
                         data: chart_data1,
                         order: 1,
                     },
                     {
                         hidden: true,
-                        type: 'line',
-                        label: "Disparate Impact Gender",
+                        label: "Disparate Impact Race",
                         fill: true,
-                        backgroundColor: 'transparent',
+                        backgroundColor:'rgba(75, 192, 192, 0.8)',
                         borderColor: 'rgba(75, 192, 192, 0.8)',
-                        borderWidth: 2,
-                        borderDash: [],
-                        borderDashOffset: 0.0,
-                        pointBackgroundColor: 'white',
-                        pointBorderColor: 'rgba(255,255,255,0)',
-                        pointHoverBackgroundColor: 'red',
-                        pointBorderWidth: 5,
-                        pointHoverRadius: 4,
-                        pointHoverBorderWidth: 15,
-                        pointRadius: 4,
+                        borderWidth: 1,
                         data: chart_data2,
                         order: 1,
                     },
@@ -265,6 +236,8 @@ $.ajax({
             myChartData.data.datasets[0].hidden = false;
             myChartData.data.datasets[1].hidden = true;
             myChartData.data.datasets[2].hidden = true;
+            $('.gender-table').hide();
+            $('.risk-table').hide();
             $('#firstChart').html('Accuracy');
             myChartData.update();
         });
@@ -274,6 +247,8 @@ $.ajax({
             myChartData.data.datasets[1].hidden = false;
             myChartData.data.datasets[0].hidden = true;
             myChartData.data.datasets[2].hidden = true;
+            $('.gender-table').hide();
+            $('.risk-table').show();
             $('#firstChart').html('Disparate Impact Age <h5 class="card-category">unprivileged group: Young <br>privileged group: Old </h5>');
             myChartData.update();
         });
@@ -283,6 +258,8 @@ $.ajax({
             myChartData.data.datasets[2].hidden = false;
             myChartData.data.datasets[0].hidden = true;
             myChartData.data.datasets[1].hidden = true;
+            $('.gender-table').show();
+            $('.risk-table').hide();
             $('#firstChart').html('Disparate Impact Gender <h5 class="card-category">unprivileged group: Female <br>privileged group: Male </h5>');
             myChartData.update();
         });
@@ -436,6 +413,10 @@ custom = {
       scales: {
         yAxes: [{
           barPercentage: 1.6,
+            gridLines: {
+                drawBorder: false,
+                zeroLineColor: "white",
+            },
         ticks:{
             beginAtZero: true,
             suggestedMax: 1,
@@ -445,7 +426,7 @@ custom = {
         },],
 
         xAxes: [{
-          barPercentage: 0.8,
+          barPercentage: 0.6,
           gridLines: {
             drawBorder: false,
             color: 'rgba(201,195,194,0.2)',

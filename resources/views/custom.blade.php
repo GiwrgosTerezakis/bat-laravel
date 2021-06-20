@@ -80,7 +80,7 @@
             </div>
             <div class="row">
 
-                <div class="col-lg-12">
+                <div class="col-lg-10 custom-analysis-table">
                     <div class="card card-chart">
                         <div class="card-header ">
                             <h5 class="card-category">Analysis Attribute</h5>
@@ -192,7 +192,7 @@
         responsive: true,
         scales: {
             yAxes: [{
-
+                barPercentage: 1.5,
                 gridLines: {
                     drawBorder: false,
                     color: 'rgba(29,140,248,0.1)',
@@ -207,7 +207,7 @@
             }],
 
             xAxes: [{
-
+                barPercentage: 0.6,
                 gridLines: {
                     drawBorder: false,
                     color: 'rgba(29,140,248,0.1)',
@@ -310,45 +310,26 @@
 
 
             var config = {
+                type: 'bar',
                 data: {
                     labels: chart_labels,
                     datasets: [{
-                        type: 'line',
                         hidden: false,
                         label: "Accuracy",
                         fill: true,
-                        backgroundColor: 'transparent',
-                        borderColor: 'rgba(75, 192, 192, 0.2)',
-                        borderWidth: 2,
-                        borderDash: [],
-                        borderDashOffset: 0.0,
-                        pointBackgroundColor: 'white',
-                        pointBorderColor: 'white',
-                        pointHoverBackgroundColor: 'transparent',
-                        pointBorderWidth: 5,
-                        pointHoverRadius: 4,
-                        pointHoverBorderWidth: 15,
-                        pointRadius: 4,
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 0.2)',
+                        borderWidth: 1,
                         data: chart_data,
                         order: 2,
                     },
                         {
                             hidden: true,
-                            type: 'line',
                             label: "Disparate Impact",
                             fill: true,
-                            backgroundColor: 'transparent',
-                            borderColor: 'rgba(75, 192, 192, 0.8)',
-                            borderWidth: 2,
-                            borderDash: [],
-                            borderDashOffset: 0.0,
-                            pointBackgroundColor: 'white',
-                            pointBorderColor: 'rgba(255,255,255,0)',
-                            pointHoverBackgroundColor: 'red',
-                            pointBorderWidth: 5,
-                            pointHoverRadius: 4,
-                            pointHoverBorderWidth: 15,
-                            pointRadius: 4,
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderColor: 'rgba(255, 99, 132, 0.2)',
+                            borderWidth: 1,
                             data: chart_data1,
                             order: 1,
                         },
@@ -362,7 +343,7 @@
                             pointBorderColor: 'transparent',
                             pointBorderWidth: 0,
                             backgroundColor: 'transparent',
-                            data: [1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2],
+                            data: [1.2, 1.2, 1.2, 1.2, 1.2, 1.2],
                             order: 2,
                         },
                         {
@@ -375,7 +356,7 @@
                             pointBorderColor: 'transparent',
                             label: 'Lower Acceptable Line',
                             backgroundColor: 'transparent',
-                            data: [0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8],
+                            data: [0.8, 0.8, 0.8, 0.8, 0.8, 0.8],
                             order: 2,
                         }
                     ]
@@ -564,6 +545,10 @@
                 scales: {
                     yAxes: [{
                         barPercentage: 1.6,
+                        gridLines: {
+                            drawBorder: false,
+                            zeroLineColor: "white",
+                        },
                         ticks:{
                             beginAtZero: true,
                             suggestedMax: 1,
@@ -573,7 +558,7 @@
                     },],
 
                     xAxes: [{
-                        barPercentage: 0.8,
+                        barPercentage: 0.6,
                         gridLines: {
                             drawBorder: false,
                             color: 'rgba(201,195,194,0.2)',

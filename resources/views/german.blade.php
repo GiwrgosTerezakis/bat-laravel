@@ -93,7 +93,7 @@
             </div>
             <div class="row">
 
-                <div class="col-lg-6">
+                <div class="col-lg-10 gender-table">
                     <div class="card card-chart">
                         <div class="card-header ">
                             <h5 class="card-category">Attribute</h5>
@@ -115,7 +115,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-10 risk-table">
                     <div class="card card-chart">
                         <div class="card-header ">
                             <h5 class="card-category">Attribute</h5>

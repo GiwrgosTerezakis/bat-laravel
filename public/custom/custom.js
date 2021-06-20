@@ -1,4 +1,51 @@
 type = ['primary', 'info', 'success', 'warning', 'danger'];
+gradientBarChartConfiguration = {
+    maintainAspectRatio: false,
+    legend: {
+        display: false
+    },
+
+    tooltips: {
+        backgroundColor: '#f5f5f5',
+        titleFontColor: '#333',
+        bodyFontColor: '#666',
+        bodySpacing: 4,
+        xPadding: 12,
+        mode: "nearest",
+        intersect: 0,
+        position: "nearest"
+    },
+    responsive: true,
+    scales: {
+        yAxes: [{
+            barPercentage:1.5,
+            gridLines: {
+                drawBorder: false,
+                color: 'rgba(29,140,248,0.1)',
+                zeroLineColor: "transparent",
+            },
+            ticks: {
+                suggestedMin: 0,
+                suggestedMax: 100,
+                padding: 20,
+                fontColor: "#9e9e9e"
+            }
+        }],
+
+        xAxes: [{
+        barPercentage:0.6,
+            gridLines: {
+                drawBorder: false,
+                color: 'rgba(29,140,248,0.1)',
+                zeroLineColor: "transparent",
+            },
+            ticks: {
+                padding: 20,
+                fontColor: "#9e9e9e"
+            }
+        }]
+    }
+};
 
 $.ajax({
     url: 'https://bat-django.herokuapp.com/Compas/Gender',
@@ -120,65 +167,36 @@ $.ajax({
 
 
         var config = {
+            type: 'bar',
             data: {
                 labels: chart_labels,
                 datasets: [{
-                    type: 'line',
                     hidden: false,
                     label: "Accuracy",
                     fill: true,
-                    backgroundColor: 'transparent',
-                    borderColor: 'rgba(75, 192, 192, 0.2)',
-                    borderWidth: 2,
-                    borderDash: [],
-                    borderDashOffset: 0.0,
-                    pointBackgroundColor: 'white',
-                    pointBorderColor: 'white',
-                    pointHoverBackgroundColor: 'transparent',
-                    pointBorderWidth: 5,
-                    pointHoverRadius: 4,
-                    pointHoverBorderWidth: 15,
-                    pointRadius: 4,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 0.2)',
+                    borderWidth: 1,
                     data: chart_data,
                     order: 2,
                 },
                     {
                         hidden: true,
-                        type: 'line',
                         label: "Disparate Impact Race",
                         fill: true,
-                        backgroundColor: 'transparent',
-                        borderColor: 'rgba(75, 192, 192, 0.8)',
-                        borderWidth: 2,
-                        borderDash: [],
-                        borderDashOffset: 0.0,
-                        pointBackgroundColor: 'white',
-                        pointBorderColor: 'rgba(255,255,255,0)',
-                        pointHoverBackgroundColor: 'red',
-                        pointBorderWidth: 5,
-                        pointHoverRadius: 4,
-                        pointHoverBorderWidth: 15,
-                        pointRadius: 4,
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 0.2)',
+                        borderWidth: 1,
                         data: chart_data1,
                         order: 1,
                     },
                     {
                         hidden: true,
-                        type: 'line',
                         label: "Disparate Impact Race",
                         fill: true,
-                        backgroundColor: 'transparent',
-                        borderColor: 'rgba(75, 192, 192, 0.8)',
-                        borderWidth: 2,
-                        borderDash: [],
-                        borderDashOffset: 0.0,
-                        pointBackgroundColor: 'white',
-                        pointBorderColor: 'rgba(255,255,255,0)',
-                        pointHoverBackgroundColor: 'red',
-                        pointBorderWidth: 5,
-                        pointHoverRadius: 4,
-                        pointHoverBorderWidth: 15,
-                        pointRadius: 4,
+                        backgroundColor:'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 0.2)',
+                        borderWidth: 1,
                         data: chart_data2,
                         order: 1,
                     },
@@ -220,6 +238,8 @@ $.ajax({
             myChartData.data.datasets[0].hidden = false;
             myChartData.data.datasets[1].hidden = true;
             myChartData.data.datasets[2].hidden = true;
+            $('.gender-table').hide();
+            $('.race-table').hide();
             $('#firstChart').html('Accuracy');
             myChartData.update();
         });
@@ -229,6 +249,8 @@ $.ajax({
             myChartData.data.datasets[1].hidden = false;
             myChartData.data.datasets[0].hidden = true;
             myChartData.data.datasets[2].hidden = true;
+            $('.gender-table').hide();
+            $('.race-table').show();
             $('#firstChart').html('Disparate Impact Race <h5 class="card-category">unprivileged group: African-American <br>privileged group: Caucasian </h5>');
             myChartData.update();
         });
@@ -236,6 +258,8 @@ $.ajax({
             myChartData.data.datasets[3].hidden = false;
             myChartData.data.datasets[4].hidden = false;
             myChartData.data.datasets[2].hidden = false;
+            $('.gender-table').show();
+            $('.race-table').hide();
             myChartData.data.datasets[0].hidden = true;
             myChartData.data.datasets[1].hidden = true;
             $('#firstChart').html('Disparate Impact Gender <h5 class="card-category">unprivileged group: Male <br>privileged group: Female </h5>');
@@ -391,16 +415,18 @@ custom = {
       scales: {
         yAxes: [{
           barPercentage: 1.6,
+            gridLines: {
+                drawBorder: false,
+                zeroLineColor: "white",
+            },
         ticks:{
             beginAtZero: true,
-            suggestedMax: 1,
-            stepSize: 0.25,
             fontColor: '#ffffff'
         }
         },],
 
         xAxes: [{
-          barPercentage: 0.8,
+          barPercentage: 0.6,
           gridLines: {
             drawBorder: false,
             color: 'rgba(201,195,194,0.2)',
@@ -482,53 +508,6 @@ custom = {
     };
 
 
-    gradientBarChartConfiguration = {
-      maintainAspectRatio: false,
-      legend: {
-        display: false
-      },
-
-      tooltips: {
-        backgroundColor: '#f5f5f5',
-        titleFontColor: '#333',
-        bodyFontColor: '#666',
-        bodySpacing: 4,
-        xPadding: 12,
-        mode: "nearest",
-        intersect: 0,
-        position: "nearest"
-      },
-      responsive: true,
-      scales: {
-        yAxes: [{
-
-          gridLines: {
-            drawBorder: false,
-            color: 'rgba(29,140,248,0.1)',
-            zeroLineColor: "transparent",
-          },
-          ticks: {
-            suggestedMin: 0,
-            suggestedMax: 100,
-            padding: 20,
-            fontColor: "#9e9e9e"
-          }
-        }],
-
-        xAxes: [{
-
-          gridLines: {
-            drawBorder: false,
-            color: 'rgba(29,140,248,0.1)',
-            zeroLineColor: "transparent",
-          },
-          ticks: {
-            padding: 20,
-            fontColor: "#9e9e9e"
-          }
-        }]
-      }
-    };
 
     var ctx = document.getElementById("chartLinePurple").getContext("2d");
 
