@@ -10,15 +10,15 @@
     <div class="container">
         <div class="mt-5">
             <p class="introduction-p">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-                into electronic typesetting, remaining essentially unchanged.
+                <strong style="color: black; text-decoration: underline">Bias Identification Tool</strong> is an interactive benchmark that aims to highlight the biases that a dataset can hide.
+                Each engineer can compare different bias rates through the disparate impact metric on several ML models
+                and decide which one to use for his use case.<br> We do not care about accuracy, but we do care about the model that will be the fairest. <br>
+                You can first try out a sample dataset for auditing, and then you can upload and audit your <strong style="color: black">CSV</strong>!
             </p>
 
         </div>
 
-        <div class="text-center mt-5">
+        <div class="text-center mt-4">
             <h3 style="color: black; font-weight: 600; font-size: 1.4rem">
                AUDIT A SAMPLE DATASET
             </h3>
@@ -115,11 +115,7 @@
                    AUDIT YOUR OWN DATASET
                 </h3>
                         <!-- Alert message (start) -->
-                        @if(Session::has('message'))
-                            <div class="alert {{ Session::get('alert-class') }}">
-                                {{ Session::get('message') }}
-                            </div>
-                        @endif
+
                         @if(Session::has('keys') && !empty(Session::get('keys')))
 {{--                        <div>--}}
 
@@ -234,7 +230,11 @@
                             </div>
 
                         </form>
-
+                        @if(Session::has('message'))
+                            <div class="alert {{ Session::get('alert-class') }}">
+                                {{ Session::get('message') }}
+                            </div>
+                        @endif
                     </div>
                 </div>
 
