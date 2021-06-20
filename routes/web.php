@@ -21,3 +21,4 @@ Route::get('/compas-analysis',[\App\Http\Controllers\CompasAnalysisController::c
 Route::get('/german-analysis',[\App\Http\Controllers\GermanAnalysisController::class, 'index']);
 Route::post('/uploadFile', [\App\Http\Controllers\UploadFileController::class, 'uploadFile'])->name('uploadFile');
 Route::post('/postToDjango', [\App\Http\Controllers\UploadFileController::class, 'postToDjango'])->name('postToDjango');
+Route::get('/returnSensitive/{column_name}', [\App\Http\Controllers\UploadFileController::class, 'returnSensitive'])->name('returnSensitive');

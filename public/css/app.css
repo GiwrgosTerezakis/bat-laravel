@@ -24,8 +24,32 @@ body {
     min-height: 200px;
     border-radius: 0 !important;
 }
+.modal-body.mx-3{
+    display: grid;
+}
+.btn-import-excel.attributes
+{
+    margin-top: 10px !important;
+}
+.modal-title{
+    position: relative;
+    left: 20px;
+}
+label {
+    text-transform: uppercase;
+    margin-top: 5px;
+    font-weight: 600;
+}
+.modal-footer{
+    border-top: none !important;
+}
 .input-excel{
     margin: 0 auto;
+}
+select {
+    -webkit-box-shadow: 3px 3px 0 0 rgb(51 50 52);
+    -moz-box-shadow: 3px 3px 0 0 rgba(51,50,52,1);
+    box-shadow: 3px 3px 0 0 rgb(51 50 52);
 }
 .btn-import-excel {
     background: #fff;

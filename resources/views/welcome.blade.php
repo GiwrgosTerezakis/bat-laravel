@@ -95,7 +95,7 @@
                             <div class="alert {{ Session::get('alert-class') }}">
                                 {{ Session::get('message') }}
                             </div>
-                    @endif
+                        @endif
                         @if(Session::has('keys') && !empty(Session::get('keys')))
 {{--                        <div>--}}
 
@@ -103,7 +103,7 @@
 {{--                            <h1>{{$key}}</h1>--}}
 
 {{--                        </div>--}}
-                            <div class="modal" id="modalLoginForm" tabindex="-1" role="dialog"  style="display: block !important; color: black!important; top: 30% !important;">
+                            <div class="modal" id="modalLoginForm" tabindex="-1" role="dialog"  style="display: block !important; color: black!important; top: 20% !important;">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header text-center" style="color: black !important;">
@@ -125,43 +125,62 @@
                                                         @if($key == '')
                                                             @continue;
                                                         @endif
-                                                        <option style="color: black !important;" value={{$key}}>
+                                                        <option style="color: black !important;" value="{{$key}}">
                                                             {{$key}}
                                                         </option>
                                                     @endforeach
                                                 </select>
 
+                                            <label style="color: black !important;" for="Sensitive">Sensitive
+                                                Attribute: </label>
+                                            <select style="color:#000 !important;" name="Sensitive"
+                                                    id="Sensitive">
+                                                @foreach(Session::get('keys') as $key)
+                                                    @if($key == '')
+                                                        @continue;
+                                                    @endif
+                                                    <option style="color: black !important;" value="{{$key}}">
+                                                        {{$key}}
+                                                    </option>
+                                                @endforeach
+                                            </select>
                                                 <label style="color: black !important;" for="Privileged">Privileged
                                                     Attribute: </label>
                                                 <select style="color:#000 !important;" name="Privileged"
                                                         id="Privileged">
-                                                    @foreach(Session::get('keys') as $key)
-                                                        @if($key == '')
-                                                            @continue;
-                                                        @endif
-                                                        <option style="color: black !important;" value={{$key}}>
-                                                            {{$key}}
+                                                        <option style="color: black !important;" value="Pick Sensitive Column First" disabled>
+                                                           Pick Sensitive Column First
                                                         </option>
-                                                    @endforeach
                                                 </select>
 
                                                 <label style="color: black !important;" for="Unprivileged">Unprivileged
                                                     Attribute: </label>
                                                 <select style="color:#000 !important;" name="Unprivileged"
                                                         id="Unprivileged">
-                                                    @foreach(Session::get('keys') as $key)
-                                                        @if($key == '')
-                                                            @continue;
-                                                        @endif
-                                                        <option style="color: black !important;" value={{$key}}>
-                                                            {{$key}}
-                                                        </option>
-                                                    @endforeach
+                                                            <option style="color: black !important;" value="Pick Sensitive Column First" disabled>
+                                                                Pick Sensitive Column First
+                                                            </option>
                                                 </select>
+
+
+
+                                            <label style="color: black !important;" for="Analysis">Analysis
+                                                Attribute: </label>
+                                            <select style="color:#000 !important;" name="Analysis"
+                                                    id="Analysis">
+                                                @foreach(Session::get('keys') as $key)
+                                                    @if($key == '')
+                                                        @continue;
+                                                    @endif
+                                                    <option style="color: black !important;" value="{{$key}}">
+                                                        {{$key}}
+                                                    </option>
+                                                @endforeach
+                                            </select>
 
                                         </div>
                                         <div class="modal-footer d-flex justify-content-center">
-                                            <button class="btn btn-default">Begin Audition</button>
+                                            <button class=" btn-import-excel attributes">Begin Audition</button>
                                         </div>
                                         </form>
                                     </div>

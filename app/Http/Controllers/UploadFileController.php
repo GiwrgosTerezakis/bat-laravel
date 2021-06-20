@@ -41,6 +41,7 @@ class UploadFileController extends Controller
                 }
             }
 
+
             Session::flash('message', 'Upload Successfully.');
             Session::flash('alert-class', 'alert-success');
         } else {
@@ -53,15 +54,61 @@ class UploadFileController extends Controller
 
     public function postToDjango(Request $request)
     {
-        $data = [
+        $location = 'files';
+        $rows = SimpleExcelReader::create($location .'/' . Session::get('filename'))->getRows();
+        $keys = [];
+        if (!empty($rows)) {
+            foreach ($rows as $row) {
+                $keys = array_keys($row);
+                break;
+
+            }
+        }
+        $dataToSend = [
             'filename' => Session::get('filename'),
             'target' => $request->get('TargetInput'),
+            'sensitive' => $request->get('Sensitive'),
             'privileged' => $request->get('Privileged'),
             'unprivileged' => $request->get('Unprivileged'),
             'analysis' => $request->get('Analysis')
         ];
 
-        return Redirect::back();
+        $i = -1;
+        $sampleData = [];
+
+        foreach ($rows as $row){
+            $sampleData[] = $row;
+            $i++;
+            if($i==1000) break;
+        }
+        foreach ($keys as $key)
+        {
+            $thNames[] = $key;
+        }
+
+
+        return view('custom')->with(compact('sampleData', 'thNames' , 'dataToSend'));
+
+    }
+
+    public function returnSensitive($column_name)
+    {
+        $location = 'files';
+        $already_set = [];
+        $attributes_to_show = [];
+        $rows = SimpleExcelReader::create($location .'/' . Session::get('filename'))->getRows();
+        foreach ($rows as $key => $row)
+        {
+
+                if(!in_array($row[$column_name],$already_set))
+                {
+                    $attributes_to_show[] = $row[$column_name];
+                    $already_set[] = $row[$column_name];
+                }
+
+        }
+
+        return response()->json($attributes_to_show);
     }
 
 }

@@ -17,18 +17,46 @@
     <link href="/css/app.css" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
-
+<body>
 @yield("content")
-
-
-
 </body>
-
 </html>
 
 <script>
-$('#modal-to-close').on('click',function ()
-{
-  $('#modalLoginForm').remove();
-});
+    $(document).ready(function() {
+        if ($('.alert-danger').length) {
+            setTimeout(function () {
+                $('.alert-danger').fadeOut();
+            }, 3000);
+        }
+        if ($('.alert-success').length) {
+            setTimeout(function () {
+                $('.alert-success').fadeOut();
+            }, 3000);
+        }
+        $('#modal-to-close').on('click', function () {
+            $('#modalLoginForm').remove();
+        });
+
+        $('#Sensitive').on('change',function (){
+            let column_name = $('#Sensitive').find(":selected").val();
+            $.ajax({
+                url: '/returnSensitive/'+column_name+'',
+                type: 'GET',
+                dataType: 'json',
+                success: (data) => {
+                    $('#Privileged').empty();
+                    $('#Unprivileged').empty();
+                    $.map(data, function(val, key) {
+
+                        let div_data = "<option style='color: black !important;' value=" + val + ">" + val + "</option>";
+                        $(div_data).appendTo('#Privileged');
+                        $(div_data).appendTo('#Unprivileged');
+
+                    });
+
+                }
+            });
+        })
+    });
 </script>
