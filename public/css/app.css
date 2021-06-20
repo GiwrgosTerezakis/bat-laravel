@@ -27,6 +27,9 @@ body {
 .modal-body.mx-3{
     display: grid;
 }
+#Capa_1{
+    transform: rotate(90deg);
+}
 .btn-import-excel.attributes
 {
     margin-top: 10px !important;
