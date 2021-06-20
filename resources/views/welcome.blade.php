@@ -136,7 +136,7 @@
                                                 <span style="color: black!important;" aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        <form action="/postToDjango" enctype='multipart/form-data'
+                                        <form action="/custom-analysis" enctype='multipart/form-data'
                                               method="post" style="margin: 25px;">
                                             {{csrf_field()}}
                                         <div class="modal-body mx-3">
