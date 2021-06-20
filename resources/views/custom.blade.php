@@ -389,7 +389,7 @@
                 myChartData.data.datasets[3].hidden = false;
                 myChartData.data.datasets[1].hidden = false;
                 myChartData.data.datasets[0].hidden = true;
-                $('#firstChart').html('Disparate Impact <h5 class="card-category">unprivileged group: Female <br>privileged group: Male </h5>');
+                $('#firstChart').html('Disparate Impact <h5 class="card-category">unprivileged group: ' + unprivileged + ' <br>privileged group: ' + privileged + ' </h5>');
                 myChartData.update();
             });
 
