@@ -8,6 +8,7 @@ body {
 .introduction-p{
     color: black;
     font-size: 16px;
+    text-align: justify;
 }
 .info-card{
     position: absolute;

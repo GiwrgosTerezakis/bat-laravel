@@ -199,7 +199,6 @@
 <script src="/js/plugins/perfect-scrollbar.jquery.min.js"></script>
 <script src="/js/plugins/chartjs.min.js"></script>
 <script src="/js/plugins/bootstrap-notify.js"></script>
-<script src="/js/black-dashboard.min.js?v=1.0.0" type="text/javascript"></script>
 <script src="/custom/custom.js"></script>
 <script>
     $(document).ready(function () {
