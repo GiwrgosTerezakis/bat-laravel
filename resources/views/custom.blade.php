@@ -223,7 +223,7 @@
     $('#card-title-h2').append('<p>' + analysis + '</p>');
     $('#title-of-custom').append(filename);
     $.ajax({
-        url: 'https://bat-django.herokuapp.com/custom/'+filename+'/'+analysis+'/'+sensitive+'/'+target+'/'+privileged+'/'+unprivileged+'/',
+        url: 'https://bat-django.herokuapp.com/custom/'+filename+'/'+sensitive+'/'+analysis+'/'+target+'/'+privileged+'/'+unprivileged+'/',
         type: 'GET',
         dataType: 'json',
         beforeSend: function() {
