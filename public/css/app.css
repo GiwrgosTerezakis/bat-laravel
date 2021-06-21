@@ -26,6 +26,17 @@ body {
     min-height: 200px;
     border-radius: 0 !important;
 }
+
+@media (max-width: 767px) {
+
+    .nav-item-left{
+        text-align: left !important;
+    }
+    .a-nav-right{
+        position: relative;
+        right: 10px;
+    }
+}
 .modal-body.mx-3{
     display: grid;
 }
@@ -77,6 +88,9 @@ select {
 .card-body{
     background: papayawhip;
     color: black;
+}
+.nav-item-left{
+    text-align: right;
 }
 
 .navbar-brand{

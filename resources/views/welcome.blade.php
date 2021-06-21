@@ -3,11 +3,11 @@
 @section('content')
 {{--    check gs--}}
         <ul class="nav justify-content-center navbar-dark bg-dark justify-content-md-center">
-            <li class="nav-item" style="width: 50%; text-align: right !important;">
+            <li class="nav-item nav-item-left" style="width: 50%;">
                 <a class="nav-link navbar-brand active" target="_blank" href="https://github.com/GiwrgosTerezakis/BAT-Django">Code</a>
             </li>
             <li class="nav-item" style="width: 50%">
-                <a class="nav-link navbar-brand" target="_blank" href="/documentation">Documentation</a>
+                <a class="nav-link navbar-brand a-nav-right" target="_blank" href="/documentation">Documentation</a>
             </li>
         </ul>
     <div class="container">
