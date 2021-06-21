@@ -242,7 +242,7 @@
                 </div>
 
         <div style="text-align: center;color: black" class="mt-2">
-            © 2020 Research of a System for Βias Identification in Machine Learning, University of Patras
+            © 2021 Research of a System for Βias Identification in Machine Learning, University of Patras
         </div>
     </div>
 @endsection
