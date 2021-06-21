@@ -21,6 +21,14 @@ html, body {
 .nav-link {
     color: #4e555b !important;
 }
+.destinationMethod{
+    border: 2px solid #c1c6d1;
+    border-radius: 4px;
+    padding: 2px 7px;
+    margin-right: 5px;
+    font-weight: 700;
+    color: #62b49c;
+}
 /*------------NAV BAR----------------*/
 
 #navbar {

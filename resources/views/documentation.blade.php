@@ -80,7 +80,7 @@
 
                         <pre>
     <code>
-https://bat-django.herokuapp.com/Compas/Ml</code>
+<span class="destinationMethod get">GET</span>  https://bat-django.herokuapp.com/Compas/Ml</code>
   </pre>
                         <h3>Gender</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel
@@ -90,7 +90,7 @@ https://bat-django.herokuapp.com/Compas/Ml</code>
 
                         <pre>
     <code>
-    https://bat-django.herokuapp.com/Compas/Gender</code>
+   <span class="destinationMethod get">GET</span>  https://bat-django.herokuapp.com/Compas/Gender</code>
   </pre>
 
 
@@ -102,7 +102,7 @@ https://bat-django.herokuapp.com/Compas/Ml</code>
 
                         <pre>
     <code>
-https://bat-django.herokuapp.com/Compas/Race</code>
+<span class="destinationMethod get">GET</span>  https://bat-django.herokuapp.com/Compas/Race</code>
   </pre>
 
                     </article>
@@ -119,7 +119,7 @@ https://bat-django.herokuapp.com/Compas/Race</code>
 
                         <pre>
     <code>
-https://bat-django.herokuapp.com/German/Ml</code>
+<span class="destinationMethod get">GET</span> https://bat-django.herokuapp.com/German/Ml</code>
   </pre>
                         <h3>Gender</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel
@@ -129,7 +129,7 @@ https://bat-django.herokuapp.com/German/Ml</code>
 
                         <pre>
                         <code>
-                        https://bat-django.herokuapp.com/credit-risk/gender</code>
+                     <span class="destinationMethod get">GET</span>    https://bat-django.herokuapp.com/credit-risk/gender</code>
                       </pre>
 
 
@@ -141,7 +141,7 @@ https://bat-django.herokuapp.com/German/Ml</code>
 
                         <pre>
                         <code>
-                    https://bat-django.herokuapp.com/credit-risk/bad-good</code>
+              <span class="destinationMethod get">GET</span>       https://bat-django.herokuapp.com/credit-risk/bad-good</code>
                       </pre>
 
                     </article>
@@ -157,7 +157,7 @@ https://bat-django.herokuapp.com/German/Ml</code>
 
                         <pre>
     <code>
-        https://bat-django.herokuapp.com/custom/<span style="color:#8de1de; !important;">{filename}</span>/<span style="color:#8de1de; !important;">{sensitive}</span>/<span style="color:#8de1de; !important;">{analysis}</span>/<span style="color:#8de1de; !important;">{target}</span>/<span style="color:#8de1de; !important;">{privileged}</span>/<span style="color:#8de1de; !important;">{unprivileged}</span>/</code>
+    <span class="destinationMethod get">GET</span>     https://bat-django.herokuapp.com/custom/<span style="color:#8de1de; !important;">{filename}</span>/<span style="color:#8de1de; !important;">{sensitive}</span>/<span style="color:#8de1de; !important;">{analysis}</span>/<span style="color:#8de1de; !important;">{target}</span>/<span style="color:#8de1de; !important;">{privileged}</span>/<span style="color:#8de1de; !important;">{unprivileged}</span>/</code>
   </pre>
 
                     </article>
