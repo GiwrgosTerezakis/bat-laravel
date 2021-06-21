@@ -2,11 +2,14 @@
 
 @section('content')
 {{--    check gs--}}
-    <nav class="navbar navbar-expand-bg navbar-dark bg-dark justify-content-md-center">
-        <a class="navbar-brand" href="#">Code</a>
-        <a class="navbar-brand" href="#">Home</a>
-        <a class="navbar-brand" href="#">Details</a>
-    </nav>
+        <ul class="nav justify-content-center navbar-dark bg-dark justify-content-md-center">
+            <li class="nav-item" style="width: 50%; text-align: right !important;">
+                <a class="nav-link navbar-brand active" target="_blank" href="https://github.com/GiwrgosTerezakis/BAT-Django">Code</a>
+            </li>
+            <li class="nav-item" style="width: 50%">
+                <a class="nav-link navbar-brand" target="_blank" href="/documentation">Documentation</a>
+            </li>
+        </ul>
     <div class="container">
         <div class="mt-5">
             <p class="introduction-p">

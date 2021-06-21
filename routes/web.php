@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GetRegisterInfos;
 use Illuminate\Support\Facades\Route;
+use Illuminate\View\View;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,5 @@ Route::get('/compas-analysis',[\App\Http\Controllers\CompasAnalysisController::c
 Route::get('/german-analysis',[\App\Http\Controllers\GermanAnalysisController::class, 'index']);
 Route::post('/uploadFile', [\App\Http\Controllers\UploadFileController::class, 'uploadFile'])->name('uploadFile');
 Route::post('/custom-analysis', [\App\Http\Controllers\UploadFileController::class, 'postToDjango'])->name('custom-analysis');
+Route::view('/documentation', 'documentation');
 Route::get('/returnSensitive/{column_name}', [\App\Http\Controllers\UploadFileController::class, 'returnSensitive'])->name('returnSensitive');
