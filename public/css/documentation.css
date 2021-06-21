@@ -9,7 +9,18 @@ html, body {
     color: #000;
     letter-spacing: 1px;
 }
-
+::-webkit-scrollbar-thumb {
+    background: #62b49c;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #62b49c;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+.nav-link {
+    color: #4e555b !important;
+}
 /*------------NAV BAR----------------*/
 
 #navbar {
