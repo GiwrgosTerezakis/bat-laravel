@@ -4,7 +4,7 @@
 {{--    check gs--}}
         <ul class="nav justify-content-center navbar-dark bg-dark justify-content-md-center" style="z-index: 9;">
             <li class="nav-item" style="position: absolute; left: 0" >
-                <a class="nav-link navbar-brand a-nav-right" target="_blank" href="/documentation"><img style="max-width: 120px" class="img img-responsive" src="bat.png"/></a>
+                <a class="nav-link navbar-brand a-nav-right" target="_blank" href="#"><img style="max-width: 100px" class="img img-responsive" src="bat.png"/></a>
             </li>
             <li class="nav-item nav-item-left" style="width: 50%;">
                 <a class="nav-link navbar-brand active" target="_blank" href="https://github.com/GiwrgosTerezakis/BAT-Django">Code</a>
