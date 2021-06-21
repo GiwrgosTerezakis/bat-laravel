@@ -13,7 +13,7 @@
     <div class="container">
         <div class="mt-5">
             <p class="introduction-p">
-                <strong style="color: black; text-decoration: underline">Bias Identification Tool</strong> is an interactive benchmark that aims to highlight the biases that a dataset can hide.
+                <strong style="color: black; text-decoration: underline">Bias Auditing Tool</strong> is an interactive benchmark that aims to highlight the biases that a dataset can hide.
                 Each engineer can compare different bias rates through the disparate impact metric on several ML models
                 and decide which one to use for his use case.<br> We do not care about accuracy, but we do care about the model that will be the fairest. <br>
                 You can first try out a sample dataset for auditing, and then you can upload and audit your <strong style="color: black">CSV</strong>!
