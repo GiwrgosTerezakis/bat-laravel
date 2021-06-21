@@ -26,8 +26,18 @@
 
 <script>
     $(document).ready(function() {
-        window.halloweenBats = $.halloweenBats({});
-
+        var plugin = $.halloweenBats({
+            image: 'bats.png', // Path to the image.
+            zIndex: 1, // The z-index you need.
+            amount: 2, // Bat amount.
+            width: 35, // Image width.
+            height: 20, // Animation frame height.
+            frames: 4, // Amount of animation frames.
+            speed: 8, // Higher value = faster.
+            flickering: 15, // Higher value = slower.
+            target: 'body' // Target element
+        });
+        plugin.start();
         if ($('.alert-danger').length) {
             setTimeout(function () {
                 $('.alert-danger').fadeOut();

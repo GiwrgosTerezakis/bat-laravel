@@ -36,6 +36,12 @@ body {
         position: relative;
         right: 10px;
     }
+    .a-bat{
+        top: 30px;
+    }
+    #modalLoginForm{
+        z-index: 9999;
+    }
 
     article h3{
         text-align: center;
