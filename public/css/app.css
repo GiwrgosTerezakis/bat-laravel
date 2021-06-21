@@ -36,6 +36,15 @@ body {
         position: relative;
         right: 10px;
     }
+
+    article h3{
+        text-align: center;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    section header{
+        text-align: center;
+    }
 }
 .modal-body.mx-3{
     display: grid;

@@ -154,7 +154,39 @@ footer p {
 }
 
 /*---------RESPONSIVE--------*/
+@media (max-width: 767px) {
 
+
+    article h3{
+        text-align: center;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    section header{
+        text-align: center;
+    }
+    #main-doc .head-box h1{
+        color: black;
+        font-size: 22px;
+        font-weight: bold;
+    }
+    section header h2{
+        font-size: 20px;
+    }
+    p{
+        text-align: justify;
+        padding: 0;
+    }
+    section article{
+        padding: 0 15px;
+    }
+    pre {
+        width: 100%;
+        font-size: 60%;
+        padding: 0 10px 10px 20px;
+        margin-left: 0;
+    }
+}
 @media only screen and (max-width: 768px) {
     #navbar {
         position: relative;
@@ -162,14 +194,5 @@ footer p {
         margin-bottom: 20px;
         padding-bottom: 10px;
         text-align: center;
-    }
-}
-
-@media only screen and (max-width: 480px) {
-    pre {
-        font-size: 60%;
-        max-width: 80%;
-        margin-left: 30px;
-        padding: 0 10px 10px 20px;
     }
 }

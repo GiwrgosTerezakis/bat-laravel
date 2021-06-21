@@ -51,7 +51,7 @@
         <div class="col-md-9">
             <main id="main-doc">
                 <div class="head-box">
-                    <h1 style="color: black">Bias Auditing Tool - API documentation</h1>
+                    <h1 style="color: black">Bias Auditing Tool <br> API documentation</h1>
                 </div>
 
                 <section class="main-section" id="Introduction">
