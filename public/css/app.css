@@ -3,7 +3,7 @@
     color: white;
 }
 body {
-    background-color: white ;
+    background-color: whitesmoke ;
 }
 .introduction-p{
     color: black;
@@ -75,7 +75,7 @@ select {
     background: lightgrey;
 }
 .card-body{
-    background: wheat;
+    background: papayawhip;
     color: black;
 }
 
