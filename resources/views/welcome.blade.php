@@ -2,7 +2,10 @@
 
 @section('content')
 {{--    check gs--}}
-        <ul class="nav justify-content-center navbar-dark bg-dark justify-content-md-center">
+        <ul class="nav justify-content-center navbar-dark bg-dark justify-content-md-center" style="z-index: 9;">
+            <li class="nav-item" style="position: absolute; left: 0" >
+                <a class="nav-link navbar-brand a-nav-right" target="_blank" href="/documentation"><img style="max-width: 120px" class="img img-responsive" src="bat.png"/></a>
+            </li>
             <li class="nav-item nav-item-left" style="width: 50%;">
                 <a class="nav-link navbar-brand active" target="_blank" href="https://github.com/GiwrgosTerezakis/BAT-Django">Code</a>
             </li>
@@ -13,7 +16,7 @@
     <div class="container">
         <div class="mt-5">
             <p class="introduction-p">
-                <strong style="color: black; text-decoration: underline">Bias Auditing Tool</strong> is an interactive benchmark that aims to highlight the biases that a dataset can hide.
+                <strong style="color: black;">Bias Auditing Tool</strong> or <strong style="color: black;">BAT</strong> is an interactive benchmark that aims to highlight the biases that a dataset can hide.
                 Each engineer can compare different bias rates through the disparate impact metric on several ML models
                 and decide which one to use for his use case.<br> We do not care about accuracy, but we do care about the model that will be the fairest. <br>
                 You can first try out a sample dataset for auditing, and then you can upload and audit your <strong style="color: black">CSV</strong>!

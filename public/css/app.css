@@ -51,6 +51,7 @@ body {
 }
 #Capa_1{
     transform: rotate(90deg);
+    z-index: 9;
 }
 .btn-import-excel.attributes
 {
@@ -97,6 +98,7 @@ select {
 .card-body{
     background: papayawhip;
     color: black;
+    z-index: 9;
 }
 .nav-item-left{
     text-align: right;
