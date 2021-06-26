@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
@@ -110,5 +111,14 @@ class UploadFileController extends Controller
 
         return response()->json($attributes_to_show);
     }
+    public function createPDF() {
 
+
+        // share data to view
+        view()->share('employee',$data);
+        $pdf = (new \Barryvdh\DomPDF\PDF)->loadView('pdf_view', $data);
+
+        // download PDF file with download method
+        return $pdf->download('pdf_file.pdf');
+    }
 }

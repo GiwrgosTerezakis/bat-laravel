@@ -27,6 +27,9 @@
 <div class="wrapper ">
 
     <div class="main-panel">
+        <div class="pdf-export" style="position: absolute;top: 0;left: 1">
+            <a class="btn btn-primary" href="/custom-analysis/pdf">Export to PDF</a>
+        </div>
         <div class="go-to-home">
             <a href="/"> HOME </a>
         </div>
