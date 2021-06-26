@@ -50,16 +50,13 @@
 
 .go-to-home {
     position: fixed;
-    right: 20px;
-    top: 25px;
+    top: 0;
+    right: 5px;
     z-index: 9999;
 }
 
 .go-to-home a {
     text-decoration: none;
-    font-size: 16px;
-    padding: 5px;
-    border-radius: 4px;
     background-image: linear-gradient(to bottom left, #344675, #263148, #344675) !important;
     color: #faebd7;
     border-color: #faebd7;

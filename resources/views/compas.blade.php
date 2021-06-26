@@ -31,7 +31,7 @@
             </div>
         </nav>
         <div class="go-to-home">
-            <a href="/"> HOME </a>
+            <a class="btn btn-primary" href="/"> HOME </a>
         </div>
         <div class="grid-holder-title col-12">
             <h5>Compas | Recidivism Risk Score Data and Analysis </h5>

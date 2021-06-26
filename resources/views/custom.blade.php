@@ -28,7 +28,7 @@
 
     <div class="main-panel">
         <div class="go-to-home">
-            <a href="/"> HOME </a>
+            <a class="btn btn-primary" href="/"> HOME </a>
         </div>
 
         <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal"

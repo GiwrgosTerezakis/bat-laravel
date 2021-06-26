@@ -67,6 +67,9 @@ body {
     position: relative;
     left: 20px;
 }
+a.nav-link.navbar-brand.a-nav-right{
+    padding-left: 0 !important;
+}
 label {
     text-transform: uppercase;
     margin-top: 5px;
