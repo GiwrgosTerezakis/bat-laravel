@@ -13,18 +13,17 @@
     display: block;
     width: 100%;
 }
-.race-table{
-    display: none;
-    margin: 0 auto;
-}
-.gender-table{
-    display: none;
-    margin: 0 auto;
-}
+
+.gender-table,
+.race-table,
+.race-table-risk,
+.gender-table-risk,
+.risk-table-age,
 .risk-table{
     display: none;
     margin: 0 auto;
 }
+
 .custom-analysis-table{
     margin: 0 auto;
 }

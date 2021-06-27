@@ -52,25 +52,23 @@ $.ajax({
     type: 'GET',
     dataType: 'json',
     success: (data) => {
-        // data.forEach(function (arrItem) {
-        //     console.log(arrItem.model)  ;
-        // });
 
         var ctx = document.getElementById("GenderChart").getContext("2d");
-
+        var ctx1 = document.getElementById("GenderChartRisk").getContext("2d");
         var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
 
         gradientStroke.addColorStop(1, 'rgba(29,140,248,0.2)');
         gradientStroke.addColorStop(0.4, 'rgba(29,140,248,0.0)');
         gradientStroke.addColorStop(0, 'rgba(29,140,248,0)'); //blue colors
-        var myChart = new Chart(ctx, {
+
+        var myChart1 = new Chart(ctx1, {
             type: 'bar',
             responsive: true,
             legend: {
                 display: false
             },
             data: {
-                labels: ['MEN', 'WOMEN'],
+                labels: ['Male', 'Female'],
                 datasets: [{
                     label: "",
                     fill: true,
@@ -80,28 +78,59 @@ $.ajax({
                     borderWidth: 2,
                     borderDash: [],
                     borderDashOffset: 0.0,
-                    data: [data['Male'], data['Female']],
+                    data: [data['risk-gender']['Male'], data['risk-gender']['Female']],
                 }]
             },
             options: gradientBarChartConfiguration
         });
+
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            responsive: true,
+            legend: {
+                display: false
+            },
+            data: {
+                labels: ['Male', 'Female'],
+                datasets: [{
+                    label: "",
+                    fill: true,
+                    backgroundColor: gradientStroke,
+                    hoverBackgroundColor: gradientStroke,
+                    borderColor: '#1f8ef1',
+                    borderWidth: 2,
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    data: [data['analysis']['Male'], data['analysis']['Female']],
+                }]
+            },
+            options: gradientBarChartConfiguration
+        });
+
+
     }
 });
 
 $.ajax({
-    url: 'https://bat-django.herokuapp.com/credit-risk/bad-good',
+    url: 'https://bat-django.herokuapp.com/credit-risk/age',
     type: 'GET',
     dataType: 'json',
     success: (res) => {
         var labels = [];
         var values = [];
-        for (const [key, value] of Object.entries(res)) {
+        for (const [key, value] of Object.entries(res['analysis'])) {
             labels.push(key);
             values.push(value);
         }
+        var labels_risk = [];
+        var values_risk = [];
 
+        for (const [key, value] of Object.entries(res['risk-age'])) {
+            labels_risk.push(key);
+            values_risk.push(value);
+        }
         var ctxGreen = document.getElementById("chartLineGreen").getContext("2d");
-
+        var chartLineRight = document.getElementById("chartLineRight").getContext("2d");
         var gradientStroke = ctxGreen.createLinearGradient(0, 230, 0, 50);
 
         gradientStroke.addColorStop(1, 'rgba(66,134,121,0.15)');
@@ -117,9 +146,6 @@ $.ajax({
                     'rgb(255, 99, 132)',
                     'rgb(54, 162, 235)',
                     'rgb(255, 205, 86)',
-                    'rgb(71, 179, 156)',
-                    'rgb(113,105,100)',
-                    'rgb(94,52,31)'
                 ],
                 hoverOffset: 4,
                 data: values,
@@ -129,6 +155,27 @@ $.ajax({
         var myChart = new Chart(ctxGreen, {
             type: 'doughnut',
             data: data,
+
+        });
+
+        var data1 = {
+            labels: labels_risk,
+            datasets: [{
+                label: "My First dataset",
+                fill: true,
+                backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 86)',
+                ],
+                hoverOffset: 4,
+                data: values_risk,
+            }]
+        };
+
+        var myChart = new Chart(chartLineRight, {
+            type: 'doughnut',
+            data: data1,
 
         });
     }
@@ -237,7 +284,9 @@ $.ajax({
             myChartData.data.datasets[1].hidden = true;
             myChartData.data.datasets[2].hidden = true;
             $('.gender-table').hide();
+            $('.gender-table-risk').hide();
             $('.risk-table').hide();
+            $('.risk-table-age').hide();
             $('#firstChart').html('Accuracy');
             myChartData.update();
         });
@@ -248,7 +297,9 @@ $.ajax({
             myChartData.data.datasets[0].hidden = true;
             myChartData.data.datasets[2].hidden = true;
             $('.gender-table').hide();
+            $('.gender-table-risk').hide();
             $('.risk-table').show();
+            $('.risk-table-age').show();
             $('#firstChart').html('Disparate Impact Age <h5 class="card-category">unprivileged group: Young <br>privileged group: Old </h5>');
             myChartData.update();
         });
@@ -259,7 +310,9 @@ $.ajax({
             myChartData.data.datasets[0].hidden = true;
             myChartData.data.datasets[1].hidden = true;
             $('.gender-table').show();
+            $('.gender-table-risk').show();
             $('.risk-table').hide();
+            $('.risk-table-age').hide();
             $('#firstChart').html('Disparate Impact Gender <h5 class="card-category">unprivileged group: Female <br>privileged group: Male </h5>');
             myChartData.update();
         });

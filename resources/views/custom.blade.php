@@ -80,7 +80,7 @@
             </div>
             <div class="row">
 
-                <div class="col-lg-10 custom-analysis-table">
+                <div class="col-md-6 custom-analysis-table">
                     <div class="card card-chart">
                         <div class="card-header ">
                             <h5 class="card-category">Analysis Attribute</h5>
@@ -98,7 +98,30 @@
                         </div>
                         <div class="card-body ">
                             <div class="chart-area">
-                                <canvas id="GenderChart"></canvas>
+                                <canvas id="CustomChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 custom-analysis-table-risk">
+                    <div class="card card-chart">
+                        <div class="card-header ">
+                            <h5 class="card-category">Analysis Attribute</h5>
+                            <h2 class="card-title" id="card-title2-h2"></h2>
+                            <h5 class="card-category">Total People</h5>
+                            <h3 class="card-title">
+                                <i class="tim-icons text-info" id="infoPeople2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                         class="bi bi-people" viewBox="0 0 16 16">
+                                        <path
+                                            d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+                                    </svg>
+                                </i>
+                            </h3>
+                        </div>
+                        <div class="card-body ">
+                            <div class="chart-area">
+                                <canvas id="CustomChartRisk"></canvas>
                             </div>
                         </div>
                     </div>
@@ -229,6 +252,7 @@
     unprivileged = dataToSend['unprivileged']
 
     $('#card-title-h2').append('<p>' + analysis + '</p>');
+    $('#card-title2-h2').append('<p>' + sensitive + '/' + target + '</p>');
     $('#title-of-custom').append(filename);
     $.ajax({
         url: 'https://bat-django.herokuapp.com/custom/'+filename+'/'+sensitive+'/'+analysis+'/'+target+'/'+privileged+'/'+unprivileged+'/',
@@ -245,21 +269,61 @@
 
             analysis = data['analysis'];
             total_count = data['total_count'];
+            analysis_risk = data['check-priv']
             $('#infoPeople').append(total_count)
-
+            $('#infoPeople2').append(total_count)
             let labelsToShow = [];
             let dataToShow = [];
             $.map(analysis, function(val, key) {
                 labelsToShow.push(key)
                 dataToShow.push(val)
             })
-            var ctx = document.getElementById("GenderChart").getContext("2d");
+
+            let labelsToShowRisk = [];
+            let dataToShowRisk = [];
+            $.map(analysis_risk, function(val, key) {
+                if(key == "privileged"){
+
+                    labelsToShowRisk.push(privileged)
+                }else{
+                    labelsToShowRisk.push(unprivileged)
+                }
+
+                dataToShowRisk.push(val)
+            })
+
+            var ctx = document.getElementById("CustomChart").getContext("2d");
+            var ctx1 = document.getElementById("CustomChartRisk").getContext("2d");
 
             var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
 
             gradientStroke.addColorStop(1, 'rgba(29,140,248,0.2)');
             gradientStroke.addColorStop(0.4, 'rgba(29,140,248,0.0)');
             gradientStroke.addColorStop(0, 'rgba(29,140,248,0)'); //blue colors
+
+            var myChart1 = new Chart(ctx1, {
+                type: 'bar',
+                responsive: true,
+                legend: {
+                    display: false
+                },
+                data: {
+                    labels: labelsToShowRisk,
+                    datasets: [{
+                        label: "",
+                        fill: true,
+                        backgroundColor: gradientStroke,
+                        hoverBackgroundColor: gradientStroke,
+                        borderColor: '#1f8ef1',
+                        borderWidth: 2,
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        data: dataToShowRisk,
+                    }]
+                },
+                options: gradientBarChartConfiguration
+            });
+
             var myChart = new Chart(ctx, {
                 type: 'bar',
                 responsive: true,
@@ -290,7 +354,7 @@
             var dig = [];
             var dia = [];
             $.map(dataModels, function(val, key) {
-                if(key !== 'analysis' && key !== 'total_count')
+                if(key !== 'analysis' && key !== 'total_count' && key !== 'check-priv')
                 {
                     models.push(val.model);
                     accs.push(val.acc);

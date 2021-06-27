@@ -127,7 +127,7 @@
 {{--                            <h1>{{$key}}</h1>--}}
 
 {{--                        </div>--}}
-                            <div class="modal" id="modalLoginForm" tabindex="-1" role="dialog"  style="display: block !important; color: black!important; top: 20% !important;">
+                            <div class="modal" id="modalLoginForm" tabindex="-1" role="dialog"  style="display: block !important; color: black!important;">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header text-center" style="color: black !important;">

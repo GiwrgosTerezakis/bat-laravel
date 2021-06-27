@@ -59,20 +59,22 @@ $.ajax({
         //     console.log(arrItem.model)  ;
         // });
         var ctx = document.getElementById("GenderChart").getContext("2d");
+        var ctx1 = document.getElementById("GenderChartRisk").getContext("2d");
 
         var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
 
         gradientStroke.addColorStop(1, 'rgba(29,140,248,0.2)');
         gradientStroke.addColorStop(0.4, 'rgba(29,140,248,0.0)');
         gradientStroke.addColorStop(0, 'rgba(29,140,248,0)'); //blue colors
-        var myChart = new Chart(ctx, {
+
+        var myChart1 = new Chart(ctx1, {
             type: 'bar',
             responsive: true,
             legend: {
                 display: false
             },
             data: {
-                labels: ['MEN', 'WOMEN'],
+                labels: ['Male', 'Female'],
                 datasets: [{
                     label: "",
                     fill: true,
@@ -82,7 +84,30 @@ $.ajax({
                     borderWidth: 2,
                     borderDash: [],
                     borderDashOffset: 0.0,
-                    data: [data['Male'], data['Female']],
+                    data: [data['recid']['Male'], data['recid']['Female']],
+                }]
+            },
+            options: gradientBarChartConfiguration
+        });
+
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            responsive: true,
+            legend: {
+                display: false
+            },
+            data: {
+                labels: ['Male', 'Female'],
+                datasets: [{
+                    label: "",
+                    fill: true,
+                    backgroundColor: gradientStroke,
+                    hoverBackgroundColor: gradientStroke,
+                    borderColor: '#1f8ef1',
+                    borderWidth: 2,
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    data: [data['analysis']['Male'], data['analysis']['Female']],
                 }]
             },
             options: gradientBarChartConfiguration
@@ -97,13 +122,20 @@ $.ajax({
     success: (res) => {
         var labels = [];
         var values = [];
-        for (const [key, value] of Object.entries(res)) {
+        for (const [key, value] of Object.entries(res['analysis'])) {
             labels.push(key);
             values.push(value);
         }
 
-        var ctxGreen = document.getElementById("chartLineGreen").getContext("2d");
+        var labels_risk = [];
+        var values_risk = [];
+        for (const [key, value] of Object.entries(res['recid'])) {
+            labels_risk.push(key);
+            values_risk.push(value);
+        }
 
+        var ctxGreen = document.getElementById("chartLineGreen").getContext("2d");
+        var chart2 = document.getElementById("chartLineRight").getContext("2d");
         var gradientStroke = ctxGreen.createLinearGradient(0, 230, 0, 50);
 
         gradientStroke.addColorStop(1, 'rgba(66,134,121,0.15)');
@@ -128,10 +160,31 @@ $.ajax({
             }]
         };
 
+        var data2 = {
+            labels: labels_risk,
+            datasets: [{
+                label: "My First dataset",
+                fill: true,
+                backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 86)',
+                    'rgb(71, 179, 156)',
+                    'rgb(113,105,100)',
+                    'rgb(94,52,31)'
+                ],
+                hoverOffset: 4,
+                data: values_risk,
+            }]
+        };
+
         var myChart = new Chart(ctxGreen, {
             type: 'doughnut',
             data: data,
-
+        });
+        var myChart1 = new Chart(chart2, {
+            type: 'doughnut',
+            data: data2,
         });
     }
 });
@@ -239,7 +292,9 @@ $.ajax({
             myChartData.data.datasets[1].hidden = true;
             myChartData.data.datasets[2].hidden = true;
             $('.gender-table').hide();
+            $('.gender-table-risk').hide();
             $('.race-table').hide();
+            $('.race-table-risk').hide();
             $('#firstChart').html('Accuracy');
             myChartData.update();
         });
@@ -250,7 +305,9 @@ $.ajax({
             myChartData.data.datasets[0].hidden = true;
             myChartData.data.datasets[2].hidden = true;
             $('.gender-table').hide();
+            $('.gender-table-risk').hide();
             $('.race-table').show();
+            $('.race-table-risk').show();
             $('#firstChart').html('Disparate Impact Race <h5 class="card-category">unprivileged group: African-American <br>privileged group: Caucasian </h5>');
             myChartData.update();
         });
@@ -259,7 +316,9 @@ $.ajax({
             myChartData.data.datasets[4].hidden = false;
             myChartData.data.datasets[2].hidden = false;
             $('.gender-table').show();
+            $('.gender-table-risk').show();
             $('.race-table').hide();
+            $('.race-table-risk').hide();
             myChartData.data.datasets[0].hidden = true;
             myChartData.data.datasets[1].hidden = true;
             $('#firstChart').html('Disparate Impact Gender <h5 class="card-category">unprivileged group: Male <br>privileged group: Female </h5>');

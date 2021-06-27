@@ -4844,6 +4844,16 @@ table.tablesorter thead tr .headerSortDown {
     height: 291px !important;
 }
 
+#GenderChartRisk{
+    height: 291px !important;
+}
+#CustomChartRisk{
+    height: 291px !important;
+}
+#CustomChart{
+    height: 291px !important;
+}
+
 .card-chart .card-footer {
   margin-top: 15px;
 }
