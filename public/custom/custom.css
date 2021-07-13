@@ -39,7 +39,50 @@
     width: 260px;
     text-transform: none;
 }
+.mid-choose-buttons{
+    text-align: center;
+    margin-bottom: 20px;
+}
+#DemographicsCard{
+    display: none;
+}
+#dataset-show{
+    display: none;
+}
+.custom-analysis-table-risk{
+    margin: 0 auto;
+}
 
+button#ScrollToTop{
+    width: 80px;
+    height: 80px;
+    background: transparent;
+    border: none;
+    position: fixed;
+    left: 20px;
+    z-index: 99999;
+}
+#ScrollToTop{
+    display: none;
+    outline: none;
+}
+#ScrollToTop:active{
+    border: none;
+}
+#ScrollToTop:focus{
+    border: none;
+}
+#ScrollToTop:hover{
+    cursor: pointer;
+}
+#svg_to_top{
+    width: 80px;
+    height: 80px;
+    fill: #62b49c;
+    position: fixed;
+    left: 20px;
+    bottom: 10px;
+}
 .basel-spinner.ajax-call:after {
     position: fixed;
     top: 33%;

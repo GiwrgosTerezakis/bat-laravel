@@ -48,7 +48,18 @@
         </div>
         <!-- End Navbar -->
         <div class="content">
-            <div class="row">
+            <div class="col-lg-12 mid-choose-buttons">
+                <div class="btn-group btn-group-toggle buttons-to-select" data-toggle="buttons">
+                    <label class="btn btn-sm btn-primary btn-simple active" id="analyticsButton">
+                        <input type="radio" name="options" autocomplete="off" checked> Analytics
+                    </label>
+                    <label class="btn btn-sm btn-primary btn-simple" id="analyticsDemo">
+                        <input type="radio" name="options" autocomplete="off" > Demographics
+                    </label>
+
+                </div>
+            </div>
+            <div class="row" id="analyticsCard">
                 <div class="col-12">
                     <div class="card card-chart">
                         <div class="card-header ">
@@ -78,9 +89,9 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" id="DemographicsCard">
 
-                <div class="col-md-6 custom-analysis-table">
+                <div class="col-lg-8 custom-analysis-table">
                     <div class="card card-chart">
                         <div class="card-header ">
                             <h5 class="card-category">Analysis Attribute</h5>
@@ -103,7 +114,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 custom-analysis-table-risk">
+                <div class="col-lg-8 custom-analysis-table-risk">
                     <div class="card card-chart">
                         <div class="card-header ">
                             <h5 class="card-category">Analysis Attribute</h5>
@@ -128,7 +139,7 @@
                 </div>
 
             </div>
-            <div class="row">
+            <div class="row" id="dataset-show">
                 <div class="col-lg-12 col-md-12">
                     <div class="card ">
                         <div class="card-header">
@@ -429,6 +440,17 @@
             };
             var myChartData = new Chart(ctx, config);
 
+            $('#analyticsButton').click(function (){
+                $('#DemographicsCard').hide();
+                $('#analyticsCard').show();
+                $('#dataset-show').hide();
+            });
+
+            $('#analyticsDemo').click(function (){
+                $('#DemographicsCard').show();
+                $('#analyticsCard').hide();
+                $('#dataset-show').show();
+            });
 
             $('#chacc').click(function() {
                 myChartData.data.datasets[2].hidden = true;

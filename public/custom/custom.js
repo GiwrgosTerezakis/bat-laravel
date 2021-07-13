@@ -1,3 +1,13 @@
+window.onscroll = function() {scrollFunction()};
+mybutton = document.getElementById("ScrollToTop");
+function scrollFunction() {
+    if (document.body.scrollTop > 120 || document.documentElement.scrollTop > 120) {
+        mybutton.style.display = "block";
+    } else {
+        mybutton.style.display = "none";
+    }
+}
+
 type = ['primary', 'info', 'success', 'warning', 'danger'];
 gradientBarChartConfiguration = {
     maintainAspectRatio: false,
@@ -285,16 +295,28 @@ $.ajax({
         };
         var myChartData = new Chart(ctx, config);
 
+
+        $('#analyticsButton').click(function (){
+            $('#DemographicsCard').hide();
+            $('#analyticsCard').show();
+            $('#dataset-show').hide();
+        });
+
+        $('#analyticsDemo').click(function (){
+            $('#DemographicsCard').show();
+            $('#analyticsCard').hide();
+            $('#dataset-show').show();
+            $('.gender-table').show();
+            $('.gender-table-risk').show();
+            $('.race-table').show();
+            $('.race-table-risk').show();
+        });
         $('#chacc').click(function() {
             myChartData.data.datasets[3].hidden = true;
             myChartData.data.datasets[4].hidden = true;
             myChartData.data.datasets[0].hidden = false;
             myChartData.data.datasets[1].hidden = true;
             myChartData.data.datasets[2].hidden = true;
-            $('.gender-table').hide();
-            $('.gender-table-risk').hide();
-            $('.race-table').hide();
-            $('.race-table-risk').hide();
             $('#firstChart').html('Accuracy');
             myChartData.update();
         });
@@ -304,10 +326,6 @@ $.ajax({
             myChartData.data.datasets[1].hidden = false;
             myChartData.data.datasets[0].hidden = true;
             myChartData.data.datasets[2].hidden = true;
-            $('.gender-table').hide();
-            $('.gender-table-risk').hide();
-            $('.race-table').show();
-            $('.race-table-risk').show();
             $('#firstChart').html('Disparate Impact Race <h5 class="card-category">unprivileged group: African-American <br>privileged group: Caucasian </h5>');
             myChartData.update();
         });
@@ -315,10 +333,6 @@ $.ajax({
             myChartData.data.datasets[3].hidden = false;
             myChartData.data.datasets[4].hidden = false;
             myChartData.data.datasets[2].hidden = false;
-            $('.gender-table').show();
-            $('.gender-table-risk').show();
-            $('.race-table').hide();
-            $('.race-table-risk').hide();
             myChartData.data.datasets[0].hidden = true;
             myChartData.data.datasets[1].hidden = true;
             $('#firstChart').html('Disparate Impact Gender <h5 class="card-category">unprivileged group: Male <br>privileged group: Female </h5>');

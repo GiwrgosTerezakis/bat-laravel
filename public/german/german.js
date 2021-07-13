@@ -1,3 +1,14 @@
+window.onscroll = function() {scrollFunction()};
+mybutton = document.getElementById("ScrollToTop");
+function scrollFunction() {
+    if (document.body.scrollTop > 120 || document.documentElement.scrollTop > 120) {
+        mybutton.style.display = "block";
+    } else {
+        mybutton.style.display = "none";
+    }
+}
+
+
 type = ['primary', 'info', 'success', 'warning', 'danger'];
 gradientBarChartConfiguration = {
     maintainAspectRatio: false,
@@ -277,16 +288,28 @@ $.ajax({
         };
         var myChartData = new Chart(ctx, config);
 
+        $('#analyticsButton').click(function (){
+            $('#DemographicsCard').hide();
+            $('#analyticsCard').show();
+            $('#dataset-show').hide();
+        });
+
+        $('#analyticsDemo').click(function (){
+            $('#DemographicsCard').show();
+            $('#analyticsCard').hide();
+            $('#dataset-show').show();
+            $('.gender-table').show();
+            $('.gender-table-risk').show();
+            $('.risk-table').show();
+            $('.risk-table-age').show();
+        });
         $('#chacc').click(function() {
             myChartData.data.datasets[3].hidden = true;
             myChartData.data.datasets[4].hidden = true;
             myChartData.data.datasets[0].hidden = false;
             myChartData.data.datasets[1].hidden = true;
             myChartData.data.datasets[2].hidden = true;
-            $('.gender-table').hide();
-            $('.gender-table-risk').hide();
-            $('.risk-table').hide();
-            $('.risk-table-age').hide();
+
             $('#firstChart').html('Accuracy');
             myChartData.update();
         });
@@ -296,10 +319,6 @@ $.ajax({
             myChartData.data.datasets[1].hidden = false;
             myChartData.data.datasets[0].hidden = true;
             myChartData.data.datasets[2].hidden = true;
-            $('.gender-table').hide();
-            $('.gender-table-risk').hide();
-            $('.risk-table').show();
-            $('.risk-table-age').show();
             $('#firstChart').html('Disparate Impact Age <h5 class="card-category">unprivileged group: Young <br>privileged group: Old </h5>');
             myChartData.update();
         });
@@ -309,10 +328,7 @@ $.ajax({
             myChartData.data.datasets[2].hidden = false;
             myChartData.data.datasets[0].hidden = true;
             myChartData.data.datasets[1].hidden = true;
-            $('.gender-table').show();
-            $('.gender-table-risk').show();
-            $('.risk-table').hide();
-            $('.risk-table-age').hide();
+
             $('#firstChart').html('Disparate Impact Gender <h5 class="card-category">unprivileged group: Female <br>privileged group: Male </h5>');
             myChartData.update();
         });

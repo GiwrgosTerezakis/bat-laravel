@@ -57,36 +57,27 @@
                 <section class="main-section" id="Introduction">
                     <header><h2>Introduction</h2></header>
                     <article>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-                            molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-                            numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-                            optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
-                            obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
-                            nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-                            tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
-                            quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos
-                            sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam
-                            recusandae alias error harum maxime adipisci amet laborum.</p></article>
+                        <p><b>Bias Auditing Tool </b> or <b> BAT</b> is an interactive benchmark that aims to highlight the biases that
+                            a dataset can hide. Each engineer can compare different bias rates through the disparate
+                            impact metric on several ML models and decide which one to use for his use case.
+                            We do not care about accuracy, but we do care about the model that will be the fairest.</p></article>
                 </section>
 
                 <section class="main-section" id="compas">
                     <header><h2>COMPAS</h2></header>
                     <article>
                         <h3>ML models - Disparate Impact</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel
-                            sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam
-                            eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique
-                            accusantium nemo autem.</p>
+                        <p>This request provides you the results of all Machine Learning models and their Disparate Impact that we have tested on the dataset.<br>
+                            <small>(Logistic Regression, Random Forest, Decision Tree, KNN, Naive Bayes, AdaBoost, SVM)</small>
+                        </p>
 
                         <pre>
     <code>
 <span class="destinationMethod get">GET</span>  https://bat-django.herokuapp.com/Compas/Ml</code>
   </pre>
                         <h3>Gender</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel
-                            sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam
-                            eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique
-                            accusantium nemo autem.</p>
+                        <p>This request provides you the results of Gender Distribution of the Dataset
+                            and the ratio of Gender to ground truth.</p>
 
                         <pre>
     <code>
@@ -95,10 +86,8 @@
 
 
                         <h3>Race</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel
-                            sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam
-                            eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique
-                            accusantium nemo autem.</p>
+                        <p>This request provides you the results of Race Distribution of the Dataset
+                            and the ratio of Race to ground truth.</p>
 
                         <pre>
     <code>
@@ -112,20 +101,17 @@
                     <header><h2>Credit Risk</h2></header>
                     <article>
                         <h3>ML models - Disparate Impact</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel
-                            sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam
-                            eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique
-                            accusantium nemo autem.</p>
-
+                        <p>
+                        This request provides you the results of all Machine Learning models and their Disparate Impact that we have tested on the dataset.<br>
+                        <small>(Logistic Regression, Random Forest, Decision Tree, KNN, Naive Bayes, AdaBoost, SVM)</small>
+                        </p>
                         <pre>
     <code>
 <span class="destinationMethod get">GET</span> https://bat-django.herokuapp.com/German/Ml</code>
   </pre>
                         <h3>Gender</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel
-                            sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam
-                            eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique
-                            accusantium nemo autem.</p>
+                        <p>This request provides you the results of Gender Distribution of the Dataset
+                            and the ratio of Gender to ground truth.</p>
 
                         <pre>
                         <code>
@@ -134,10 +120,8 @@
 
 
                         <h3>Risk</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel
-                            sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam
-                            eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique
-                            accusantium nemo autem.</p>
+                        <p>This request provides you the results of Risk Distribution of the Dataset
+                            and the ratio of Risk to ground truth.</p>
 
                         <pre>
                         <code>
@@ -150,10 +134,11 @@
                     <header><h2>Custom Dataset</h2></header>
                     <article>
                         <h3>ML models - Disparate Impact - Analysis</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel
-                            sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam
-                            eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique
-                            accusantium nemo autem.</p>
+                        <p>This tool enables developers to upload their dataset and analyze it for them. <br>
+                        You can upload yours too <a href="/" target="_blank">here! </a> <br>You can get information of other datasets also from other developers.<br>
+                            Uploaded Datasets: (titanic.csv)<br>
+                            <small>Example Request: <a href="https://bat-django.herokuapp.com/custom/titanic/Pclass/Survived/Survived/1/3/" target="_blank">https://bat-django.herokuapp.com/custom/titanic/Pclass/Survived/Survived/1/3/ </a> </small>
+                        </p>
 
                         <pre>
     <code>

@@ -152,7 +152,10 @@ footer p {
     margin-bottom: 10px;
     font-size: 80%;
 }
-
+#main-doc section article p{
+    padding: 0 25px;
+    margin-right: 40px;
+}
 /*---------RESPONSIVE--------*/
 @media (max-width: 767px) {
 

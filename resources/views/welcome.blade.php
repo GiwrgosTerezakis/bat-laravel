@@ -204,7 +204,7 @@
 
                                         </div>
                                         <div class="modal-footer d-flex justify-content-center">
-                                            <button class=" btn-import-excel attributes">Begin Audition</button>
+                                            <button class=" btn-import-excel attributes">Audit</button>
                                         </div>
                                         </form>
                                     </div>
