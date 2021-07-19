@@ -73,4 +73,11 @@
             });
         })
     });
+
+    function openFeedBackModal(){
+        $('#myModal').show();
+    }
+    function closeFeedbackModal(){
+        $('#myModal').hide();
+    }
 </script>
