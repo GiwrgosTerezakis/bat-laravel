@@ -76,6 +76,9 @@ svg#Feedback{
     left: 10px;
     bottom: 10px;
 }
+.feedback-class:hover{
+    cursor: pointer;
+}
 @media (max-width: 767px) {
 
     .nav-item-left{
