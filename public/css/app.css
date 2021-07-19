@@ -80,7 +80,9 @@ svg#Feedback{
     cursor: pointer;
 }
 @media (max-width: 767px) {
-
+    .feedback-class{
+        display: none;
+    }
     .nav-item-left{
         text-align: left !important;
     }
