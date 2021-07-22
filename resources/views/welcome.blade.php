@@ -241,16 +241,16 @@
                         @endif
                     </div>
                 </div>
-                
+
 <div id="myModal" class="modal">
   <!-- Modal content -->
-  <div class="modal-content">
+  <div class="modal-content modal-content-feedback">
   <span class="close" onclick="closeFeedbackModal();">&times;</span>
   <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeYbU03_-rvgIkvbTHmv47kBp-nVm_ucAeVNx4oJhkVyUezKQ/viewform?embedded=true"  height="2115" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>  </div>
 
 </div>
         <div class="feedback-class" style="text-align: center;color: black" class="mt-2">
-        
+
             <a onclick="openFeedBackModal();">
 <svg version="1.1" id="Feedback"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">

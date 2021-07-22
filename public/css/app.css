@@ -16,7 +16,7 @@ body {
     top: 2px;
 }
 /* The Modal (background) */
-.modal {
+.modal-feedback {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -30,9 +30,9 @@ body {
     z-index: 99999;
   }
 
-  
+
   /* Modal Content/Box */
-  .modal-content {
+.modal-content-feedback {
     background-color: #fefefe;
     margin: 3% auto;
     padding: 20px;
@@ -41,7 +41,7 @@ body {
     z-index: 9999999;
     max-height: 700px;
   }
-  
+
   /* The Close Button */
   .close {
     color: #aaa;
@@ -50,7 +50,7 @@ body {
     font-weight: bold;
     position: absolute;
   }
-  
+
   .close:hover,
   .close:focus {
     color: black;
