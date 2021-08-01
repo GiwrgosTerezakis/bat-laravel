@@ -70,7 +70,9 @@ class UploadFileController extends Controller
             'sensitive' => $request->get('Sensitive'),
             'privileged' => $request->get('Privileged'),
             'unprivileged' => $request->get('Unprivileged'),
-            'analysis' => $request->get('Analysis')
+            'analysis' => $request->get('Analysis'),
+            'encode' =>$request->get('encode'),
+            'dropFirstColumn' =>$request->get('dropFirstColumn')
         ];
 
         $i = -1;

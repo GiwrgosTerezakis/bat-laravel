@@ -261,12 +261,14 @@
     target = dataToSend['target']
     privileged = dataToSend['privileged']
     unprivileged = dataToSend['unprivileged']
+    dropFirstColumn = dataToSend['dropFirstColumn']
+    encode = dataToSend['unprivileged']
 
     $('#card-title-h2').append('<p>' + analysis + '</p>');
     $('#card-title2-h2').append('<p>' + sensitive + '/' + target + '</p>');
     $('#title-of-custom').append(filename);
     $.ajax({
-        url: 'https://bat-django.herokuapp.com/custom/'+filename+'/'+sensitive+'/'+analysis+'/'+target+'/'+privileged+'/'+unprivileged+'/',
+        url: 'https://bat-django.herokuapp.com/custom/'+filename+'/'+sensitive+'/'+analysis+'/'+target+'/'+privileged+'/'+unprivileged+'/'+dropFirstColumn+'/'+encode,
         type: 'GET',
         dataType: 'json',
         beforeSend: function() {

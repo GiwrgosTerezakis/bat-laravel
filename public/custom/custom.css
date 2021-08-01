@@ -19,12 +19,12 @@
 .race-table-risk,
 .gender-table-risk,
 .risk-table-age,
-.risk-table{
+.risk-table {
     display: none;
     margin: 0 auto;
 }
 
-.custom-analysis-table{
+.custom-analysis-table {
     margin: 0 auto;
 }
 .typography-line span {
@@ -39,21 +39,21 @@
     width: 260px;
     text-transform: none;
 }
-.mid-choose-buttons{
+.mid-choose-buttons {
     text-align: center;
     margin-bottom: 20px;
 }
-#DemographicsCard{
+#DemographicsCard {
     display: none;
 }
-#dataset-show{
+#dataset-show {
     display: none;
 }
-.custom-analysis-table-risk{
+.custom-analysis-table-risk {
     margin: 0 auto;
 }
 
-button#ScrollToTop{
+button#ScrollToTop {
     width: 80px;
     height: 80px;
     background: transparent;
@@ -62,20 +62,20 @@ button#ScrollToTop{
     left: 20px;
     z-index: 99999;
 }
-#ScrollToTop{
+#ScrollToTop {
     display: none;
     outline: none;
 }
-#ScrollToTop:active{
+#ScrollToTop:active {
     border: none;
 }
-#ScrollToTop:focus{
+#ScrollToTop:focus {
     border: none;
 }
-#ScrollToTop:hover{
+#ScrollToTop:hover {
     cursor: pointer;
 }
-#svg_to_top{
+#svg_to_top {
     width: 80px;
     height: 80px;
     fill: #62b49c;
@@ -99,10 +99,7 @@ button#ScrollToTop{
 
 .go-to-home a {
     text-decoration: none;
-    background-image: linear-gradient(to bottom left, #344675, #263148, #344675) !important;
-    color: #faebd7;
-    border-color: #faebd7;
-    background-color: transparent !important;
+    background-color: #232b2b;
 }
 
 .basel-spinner:after {

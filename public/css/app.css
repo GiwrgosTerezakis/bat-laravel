@@ -1,16 +1,16 @@
-*{
+* {
     font-family: "Poppins";
     color: white;
 }
 body {
-    background-color: whitesmoke ;
+    background-color: #d9dddc;
 }
-.introduction-p{
+.introduction-p {
     color: black;
     font-size: 16px;
     text-align: justify;
 }
-.info-card{
+.info-card {
     position: absolute;
     right: 8px;
     top: 2px;
@@ -25,13 +25,12 @@ body {
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
     z-index: 99999;
-  }
+}
 
-
-  /* Modal Content/Box */
+/* Modal Content/Box */
 .modal-content-feedback {
     background-color: #fefefe;
     margin: 3% auto;
@@ -40,88 +39,87 @@ body {
     width: 60%;
     z-index: 9999999;
     max-height: 700px;
-  }
+}
 
-  /* The Close Button */
-  .close {
+/* The Close Button */
+.close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
     position: absolute;
-  }
+}
 
-  .close:hover,
-  .close:focus {
+.close:hover,
+.close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
-  }
-.card{
+}
+.card {
     background: #27293d;
     position: relative;
     width: 100%;
     margin-bottom: 30px;
-    -webkit-box-shadow: 6px 7px 0 0 rgb(51 50 52);
-    -moz-box-shadow: 6px 7px 0 0 rgba(51,50,52,1);
-    box-shadow: 6px 7px 0 0 rgb(51 50 52);
+    -webkit-box-shadow: 2px 2px 0 0 rgb(51 50 52);
+    -moz-box-shadow: 2px 2px 0 0 rgba(51, 50, 52, 1);
+    box-shadow: 2px 2px 0 0 rgb(51 50 52);
     min-height: 200px;
     border-radius: 0 !important;
 }
-svg#Feedback{
-    width: 90px;
+svg#Feedback {
+    width: 50px;
 }
-.feedback-class{
+.feedback-class {
     position: fixed;
     left: 10px;
     bottom: 10px;
 }
-.feedback-class:hover{
+.feedback-class:hover {
     cursor: pointer;
 }
 @media (max-width: 767px) {
-    .feedback-class{
+    .feedback-class {
         display: none;
     }
-    .nav-item-left{
+    .nav-item-left {
         text-align: left !important;
     }
-    .a-nav-right{
+    .a-nav-right {
         position: relative;
         right: 10px;
     }
-    .a-bat{
+    .a-bat {
         top: 30px;
     }
-    #modalLoginForm{
+    #modalLoginForm {
         z-index: 9999;
     }
 
-    article h3{
+    article h3 {
         text-align: center;
         font-size: 15px;
         font-weight: bold;
     }
-    section header{
+    section header {
         text-align: center;
     }
 }
-.modal-body.mx-3{
+.modal-body.mx-3 {
     display: grid;
 }
-#Capa_1{
+#Capa_1 {
     transform: rotate(90deg);
     z-index: 9;
 }
-.btn-import-excel.attributes
-{
+.btn-import-excel.attributes {
     margin-top: 10px !important;
 }
-.modal-title{
+.modal-title {
     position: relative;
     left: 20px;
 }
-a.nav-link.navbar-brand.a-nav-right{
+a.nav-link.navbar-brand.a-nav-right {
     padding-left: 0 !important;
 }
 label {
@@ -129,29 +127,32 @@ label {
     margin-top: 5px;
     font-weight: 600;
 }
-.modal-footer{
+.modal-footer {
     border-top: none !important;
 }
-.input-excel{
+.input-excel {
     margin: 0 auto;
 }
 select {
     -webkit-box-shadow: 3px 3px 0 0 rgb(51 50 52);
-    -moz-box-shadow: 3px 3px 0 0 rgba(51,50,52,1);
+    -moz-box-shadow: 3px 3px 0 0 rgba(51, 50, 52, 1);
     box-shadow: 3px 3px 0 0 rgb(51 50 52);
 }
-.mid-choose-buttons{
+.mid-choose-buttons {
     text-align: center;
     margin-bottom: 20px;
 }
-#DemographicsCard{
+#DemographicsCard {
     display: none;
 }
-#dataset-show{
+#dataset-show {
     display: none;
+}
+.form-control {
+    background-color: #e5e8e8;
 }
 .btn-import-excel {
-    background: #fff;
+    background: #e5e8e8;
     font-size: 1.2rem;
     font-weight: 600;
     padding: 20px 60px;
@@ -161,65 +162,75 @@ select {
     display: block;
     border: 2px solid #333234;
     -webkit-box-shadow: 6px 7px 0 0 rgb(51 50 52);
-    -moz-box-shadow: 6px 7px 0 0 rgba(51,50,52,1);
+    -moz-box-shadow: 6px 7px 0 0 rgba(51, 50, 52, 1);
     box-shadow: 6px 7px 0 0 rgb(51 50 52);
     transition: 300ms ease-in-out;
 }
-.btn-import-excel:hover{
+.btn-import-excel:hover {
     background: lightgrey;
 }
-.card-body{
-    background: papayawhip;
+.card-body {
+    background: #e5e8e8;
     color: black;
     z-index: 9;
 }
-.nav-item-left{
+.top-bar {
+    background-color: #404a4c !important;
+}
+
+.nav-item-left {
     text-align: right;
 }
 
-.navbar-brand{
+.navbar-brand {
     padding-right: 20px;
     font-size: 22px !important;
 }
-.navbar-brand:hover{
+.navbar-brand:hover {
     color: antiquewhite !important;
 }
-.btn-primary.focus, .btn-primary:focus{
+.btn-primary.focus,
+.btn-primary:focus {
     box-shadow: unset;
 }
-.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle{
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show > .btn-primary.dropdown-toggle {
     background-color: black;
     color: white;
     border: none !important;
     box-shadow: none !important;
 }
-.card-text{
+.card-text {
     color: black;
     min-height: 55px;
 }
 
-
-.bi-arrow-right{
+.bi-arrow-right {
     top: -1px;
     position: relative;
 }
-.btn-primary{
+.btn-primary {
     width: 50%;
-    background-color: white;
+    background-color: transparent;
     border: 1px solid black;
     color: black;
     border-radius: 0;
+    -webkit-box-shadow: 6px 7px 0 0 rgb(51 50 52);
+    -moz-box-shadow: 6px 7px 0 0 rgba(51, 50, 52, 1);
+    box-shadow: 6px 7px 0 0 rgb(51 50 52);
+    transition: 300ms ease-in-out;
 }
-.btn-primary:hover{
-    background-color: white;
+.btn-primary:hover {
+    background-color: lightgrey;
     color: black;
     border: 1px solid black;
 }
 
-.btn-primary:hover svg{
+.btn-primary:hover svg {
     fill: black;
 }
-button#ScrollToTop{
+button#ScrollToTop {
     width: 80px;
     height: 80px;
     background: transparent;
@@ -228,20 +239,20 @@ button#ScrollToTop{
     left: 20px;
     z-index: 99999;
 }
-#ScrollToTop{
+#ScrollToTop {
     display: none;
     outline: none;
 }
-#ScrollToTop:active{
+#ScrollToTop:active {
     border: none;
 }
-#ScrollToTop:focus{
+#ScrollToTop:focus {
     border: none;
 }
-#ScrollToTop:hover{
+#ScrollToTop:hover {
     cursor: pointer;
 }
-#svg_to_top{
+#svg_to_top {
     width: 80px;
     height: 80px;
     fill: #62b49c;
