@@ -80,8 +80,8 @@ button#ScrollToTop {
     height: 80px;
     fill: #62b49c;
     position: fixed;
-    left: 20px;
-    bottom: 10px;
+    right: 20px;
+    bottom: 20px;
 }
 .basel-spinner.ajax-call:after {
     position: fixed;
