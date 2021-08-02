@@ -57,7 +57,7 @@
                 <section class="main-section" id="Introduction">
                     <header><h2>Introduction</h2></header>
                     <article>
-                        <p><b>Bias Auditing Tool </b> or <b> BAT</b> is an interactive benchmark that that highlights the biases that
+                        <p><b>Bias Auditing Tool </b> or <b> BAT</b> is an interactive benchmark that that highlights the bias that
                             a dataset can hide. Each engineer can compare different bias rates through the disparate
                             impact metric on several ML models and decide which one to use for his use case.
                             We do not care about accuracy, but we do care about the model that will be the fairest.</p></article>

@@ -14,7 +14,7 @@
     <div class="container">
         <div class="mt-5">
             <p class="introduction-p">
-                <strong style="color: black;">Bias Auditing Tool</strong> or <strong style="color: black;">BAT</strong> is an interactive benchmark that highlights the biases that a dataset can hide.
+                <strong style="color: black;">Bias Auditing Tool</strong> or <strong style="color: black;">BAT</strong> is an interactive benchmark that highlights the bias that a dataset can hide.
                 Each engineer can compare different bias rates through the disparate impact metric on several ML models
                 and decide which one to use for his use case.<br> We do not care about accuracy, but we do care about the model that will be the fairest. <br>
                 You can first try out a sample dataset for auditing, and then you can upload and audit your <strong style="color: black">CSV</strong>!
@@ -73,7 +73,7 @@
                     </div>
                 </div>
             </div>
-            
+
                     <div class="col-md-12 col-sm-12 col-xs-12 mt-5">
                         <h3 style="color: black; font-weight: 600; font-size: 1.4rem">
                    AUDIT YOUR DATASET
@@ -165,33 +165,33 @@
                                             <label style="color: black !important;" for="encode">Encode your Features? </label>
                                             <select style="color:#000 !important;" name="encode"
                                                     id="encode">
-                                        
+
                                                     <option style="color: black !important;" value="1">
                                                     Yes
                                                     </option>
                                                     <option style="color: black !important;" value="0" selected>
                                                     No
                                                     </option>
-                                               
+
                                             </select>
 
                                             <label style="color: black !important;" for="dropFirstColumn">Drop First Column? </label>
                                             <select style="color:#000 !important;" name="dropFirstColumn"
                                                     id="dropFirstColumn">
-                                        
+
                                                     <option style="color: black !important;" value="1">
                                                         Yes
                                                     </option>
                                                     <option style="color: black !important;" value="0" selected>
                                                         No
                                                     </option>
-                                               
+
                                             </select>
 
                                         </div>
                                         <div class="modal-footer d-flex justify-content-center">
                                             <button class=" btn-import-excel attributes">Audit</button>
-                                            
+
                                         </div>
                                         <h6 style="color:black !important">*** Your Target must be encoded!</h6>
                                         <h6 style="color:black !important">*** Encoded Features may give you better results.</h6>
