@@ -61,11 +61,12 @@ body {
     position: relative;
     width: 100%;
     margin-bottom: 30px;
-    -webkit-box-shadow: 2px 2px 0 0 rgb(51 50 52);
-    -moz-box-shadow: 2px 2px 0 0 rgba(51, 50, 52, 1);
-    box-shadow: 2px 2px 0 0 rgb(51 50 52);
+    -webkit-box-shadow: 2px 2px 0 0 #404a4c;
+    -moz-box-shadow: 0px 7px 0 0 #404a4c;
+    box-shadow: 0px 7px 0 0 #404a4c;
     min-height: 200px;
     border-radius: 0 !important;
+    border: none !important;
 }
 svg#Feedback {
     width: 50px;
@@ -216,9 +217,9 @@ select {
     border: 1px solid black;
     color: black;
     border-radius: 0;
-    -webkit-box-shadow: 6px 7px 0 0 rgb(51 50 52);
-    -moz-box-shadow: 6px 7px 0 0 rgba(51, 50, 52, 1);
-    box-shadow: 6px 7px 0 0 rgb(51 50 52);
+    -webkit-box-shadow: 6px 7px 0 0 #404a4c;
+    -moz-box-shadow: 6px 7px 0 0 #404a4c;
+    box-shadow: 6px 7px 0 0 #404a4c;
     transition: 300ms ease-in-out;
 }
 .btn-primary:hover {
