@@ -74,9 +74,17 @@ $.ajax({
         $("body").append('<span class="basel-spinner ajax-call"></span>');
     },
     success: (data) => {
-        // data.forEach(function (arrItem) {
-        //     console.log(arrItem.model)  ;
-        // });
+
+
+
+        for (const [key, value] of Object.entries(data["recid"])) {
+            $('#gender-recid').append('<li>'+value+'% of '+key+' will receive recidivism </li>')
+        }
+
+        for (const [key, value] of Object.entries(data["analysis"])) {
+            $('#gender-analysis').append('<li>'+value+'% are '+key+' </li>')
+        }
+
         var ctx = document.getElementById("GenderChart").getContext("2d");
         var ctx1 = document.getElementById("GenderChartRisk").getContext("2d");
 
@@ -149,6 +157,8 @@ $.ajax({
         for (const [key, value] of Object.entries(res["analysis"])) {
             labels.push(key);
             values.push(value);
+
+            $('#race-analysis').append('<li>'+value+'% are '+key+' </li>')
         }
 
         var labels_risk = [];
@@ -156,6 +166,8 @@ $.ajax({
         for (const [key, value] of Object.entries(res["recid"])) {
             labels_risk.push(key);
             values_risk.push(value);
+
+            $('#race-recid').append('<li>'+value+'% of '+key+' will receive recidivism </li>')
         }
 
         var ctxGreen = document
@@ -294,7 +306,7 @@ $.ajax({
                         pointBorderColor: "transparent",
                         pointBorderWidth: 0,
                         backgroundColor: "transparent",
-                        data: [1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2],
+                        data: [1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25],
                         order: 2,
                     },
                     {
@@ -338,6 +350,7 @@ $.ajax({
             myChartData.data.datasets[1].hidden = true;
             myChartData.data.datasets[2].hidden = true;
             $("#firstChart").html("Accuracy");
+            $(".row-documentation .card-doc").html('');
             myChartData.update();
         });
         $("#dir").click(function () {
@@ -349,6 +362,15 @@ $.ajax({
             $("#firstChart").html(
                 'Disparate Impact Race <h5 class="card-category">unprivileged group: African-American <br>privileged group: Caucasian </h5>'
             );
+
+            $(".row-documentation .card-doc").html(
+                'Computed as the ratio of rate of favorable outcome for the unprivileged group to that of the privileged group.\n' +
+                '                                        The ideal value of this metric is 1.0<br> A value &lt; 1 implies higher benefit for\n' +
+                '                                        the privileged group and a value &gt; 1 implies a higher benefit for the\n' +
+                '                                        unprivileged group.<br>\n' +
+                '                                        Fairness for this metric is between 0.8 and 1.25'
+            );
+
             myChartData.update();
         });
         $("#dig").click(function () {
@@ -360,6 +382,16 @@ $.ajax({
             $("#firstChart").html(
                 'Disparate Impact Gender <h5 class="card-category">unprivileged group: Male <br>privileged group: Female </h5>'
             );
+
+            $(".row-documentation .card-doc").html(
+               'Computed as the ratio of rate of favorable outcome for the unprivileged group to that of the privileged group.\n' +
+                '                                        The ideal value of this metric is 1.0<br> A value &lt; 1 implies higher benefit for\n' +
+                '                                        the privileged group and a value &gt; 1 implies a higher benefit for the\n' +
+                '                                        unprivileged group.<br>\n' +
+                '                                        Fairness for this metric is between 0.8 and 1.25'
+            );
+
+
             myChartData.update();
         });
     },

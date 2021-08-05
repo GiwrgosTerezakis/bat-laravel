@@ -100,6 +100,10 @@ button#ScrollToTop {
 .go-to-home a {
     text-decoration: none;
     background-color: #232b2b;
+    border: 1px solid #414a4c;
+}
+.go-to-home a:hover{
+    border: 1px solid #414a4c !important;
 }
 
 .basel-spinner:after {
