@@ -70,6 +70,7 @@ body {
 }
 svg#Feedback {
     width: 50px;
+    fill: white;
 }
 .feedback-class {
     position: fixed;
@@ -144,6 +145,9 @@ select {
     margin-bottom: 20px;
 }
 #DemographicsCard {
+    display: none;
+}
+.total-people {
     display: none;
 }
 #dataset-show {

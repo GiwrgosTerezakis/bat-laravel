@@ -74,15 +74,27 @@ $.ajax({
         $("body").append('<span class="basel-spinner ajax-call"></span>');
     },
     success: (data) => {
-
-
-
         for (const [key, value] of Object.entries(data["recid"])) {
-            $('#gender-recid').append('<li>'+value+'% of '+key+' will receive recidivism </li>')
+            appendLetter = "";
+            lastIsS = key.slice(-1);
+            if (lastIsS !== "s") {
+                appendLetter = "s";
+            }
+
+            $("#gender-recid").append(
+                "<li>" +
+                    value +
+                    "% of " +
+                    key +
+                    appendLetter +
+                    " will be arrested within two years </li>"
+            );
         }
 
         for (const [key, value] of Object.entries(data["analysis"])) {
-            $('#gender-analysis').append('<li>'+value+'% are '+key+' </li>')
+            $("#gender-analysis").append(
+                "<li>" + value + "% are " + key + " </li>"
+            );
         }
 
         var ctx = document.getElementById("GenderChart").getContext("2d");
@@ -158,7 +170,9 @@ $.ajax({
             labels.push(key);
             values.push(value);
 
-            $('#race-analysis').append('<li>'+value+'% are '+key+' </li>')
+            $("#race-analysis").append(
+                "<li>" + value + "% are " + key + " </li>"
+            );
         }
 
         var labels_risk = [];
@@ -166,8 +180,20 @@ $.ajax({
         for (const [key, value] of Object.entries(res["recid"])) {
             labels_risk.push(key);
             values_risk.push(value);
+            appendLetter = "";
+            lastIsS = key.slice(-1);
+            if (lastIsS !== "s") {
+                appendLetter = "s";
+            }
 
-            $('#race-recid').append('<li>'+value+'% of '+key+' will receive recidivism </li>')
+            $("#race-recid").append(
+                "<li>" +
+                    value +
+                    "% of " +
+                    key +
+                    appendLetter +
+                    " will be arrested within two years </li>"
+            );
         }
 
         var ctxGreen = document
@@ -332,10 +358,12 @@ $.ajax({
             $("#DemographicsCard").hide();
             $("#analyticsCard").show();
             $("#dataset-show").hide();
+            $(".total-people").hide();
         });
 
         $("#analyticsDemo").click(function () {
             $("#DemographicsCard").show();
+            $(".total-people").show();
             $("#analyticsCard").hide();
             $("#dataset-show").show();
             $(".gender-table").show();
@@ -350,7 +378,7 @@ $.ajax({
             myChartData.data.datasets[1].hidden = true;
             myChartData.data.datasets[2].hidden = true;
             $("#firstChart").html("Accuracy");
-            $(".row-documentation .card-doc").html('');
+            $(".row-documentation .card-doc").html("");
             myChartData.update();
         });
         $("#dir").click(function () {
@@ -364,11 +392,11 @@ $.ajax({
             );
 
             $(".row-documentation .card-doc").html(
-                'Computed as the ratio of rate of favorable outcome for the unprivileged group to that of the privileged group.\n' +
-                '                                        The ideal value of this metric is 1.0<br> A value &lt; 1 implies higher benefit for\n' +
-                '                                        the privileged group and a value &gt; 1 implies a higher benefit for the\n' +
-                '                                        unprivileged group.<br>\n' +
-                '                                        Fairness for this metric is between 0.8 and 1.25'
+                "Computed as the ratio of rate of favorable outcome for the unprivileged group to that of the privileged group.\n" +
+                    "                                        The ideal value of this metric is 1.0<br> A value &lt; 1 implies higher benefit for\n" +
+                    "                                        the privileged group and a value &gt; 1 implies a higher benefit for the\n" +
+                    "                                        unprivileged group.<br>\n" +
+                    "                                        Fairness for this metric is between 0.8 and 1.25"
             );
 
             myChartData.update();
@@ -384,13 +412,12 @@ $.ajax({
             );
 
             $(".row-documentation .card-doc").html(
-               'Computed as the ratio of rate of favorable outcome for the unprivileged group to that of the privileged group.\n' +
-                '                                        The ideal value of this metric is 1.0<br> A value &lt; 1 implies higher benefit for\n' +
-                '                                        the privileged group and a value &gt; 1 implies a higher benefit for the\n' +
-                '                                        unprivileged group.<br>\n' +
-                '                                        Fairness for this metric is between 0.8 and 1.25'
+                "Computed as the ratio of rate of favorable outcome for the unprivileged group to that of the privileged group.\n" +
+                    "                                        The ideal value of this metric is 1.0<br> A value &lt; 1 implies higher benefit for\n" +
+                    "                                        the privileged group and a value &gt; 1 implies a higher benefit for the\n" +
+                    "                                        unprivileged group.<br>\n" +
+                    "                                        Fairness for this metric is between 0.8 and 1.25"
             );
-
 
             myChartData.update();
         });
@@ -646,42 +673,5 @@ custom = {
             },
             responsive: true,
         };
-
-        var ctx = document.getElementById("chartLinePurple").getContext("2d");
-
-        var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
-
-        gradientStroke.addColorStop(1, "rgba(72,72,176,0.2)");
-        gradientStroke.addColorStop(0.2, "rgba(72,72,176,0.0)");
-        gradientStroke.addColorStop(0, "rgba(119,52,169,0)"); //purple colors
-
-        var data = {
-            labels: ["JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
-            datasets: [
-                {
-                    label: "Data",
-                    fill: true,
-                    backgroundColor: gradientStroke,
-                    borderColor: "#d048b6",
-                    borderWidth: 2,
-                    borderDash: [],
-                    borderDashOffset: 0.0,
-                    pointBackgroundColor: "#d048b6",
-                    pointBorderColor: "rgba(255,255,255,0)",
-                    pointHoverBackgroundColor: "#d048b6",
-                    pointBorderWidth: 20,
-                    pointHoverRadius: 4,
-                    pointHoverBorderWidth: 15,
-                    pointRadius: 4,
-                    data: [80, 100, 70, 80, 120, 80],
-                },
-            ],
-        };
-
-        var myChart = new Chart(ctx, {
-            type: "line",
-            data: data,
-            options: gradientChartOptionsConfigurationWithTooltipPurple,
-        });
     },
 };

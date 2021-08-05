@@ -77,6 +77,29 @@ $.ajax({
         gradientStroke.addColorStop(0.4, "rgba(29,140,248,0.0)");
         gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); //blue colors
 
+        for (const [key, value] of Object.entries(data["risk-gender"])) {
+            appendLetter = "";
+            lastIsS = key.slice(-1);
+            if (lastIsS !== "s") {
+                appendLetter = "s";
+            }
+
+            $("#gender-risk").append(
+                "<li>" +
+                    value +
+                    "% of " +
+                    key +
+                    appendLetter +
+                    " have a good risk </li>"
+            );
+        }
+
+        for (const [key, value] of Object.entries(data["analysis"])) {
+            $("#gender-analysis").append(
+                "<li>" + value + "% are " + key + " </li>"
+            );
+        }
+
         var myChart1 = new Chart(ctx1, {
             type: "bar",
             responsive: true,
@@ -141,6 +164,10 @@ $.ajax({
         for (const [key, value] of Object.entries(res["analysis"])) {
             labels.push(key);
             values.push(value);
+
+            $("#age-analysis").append(
+                "<li>" + value + "% are between " + key + " </li>"
+            );
         }
         var labels_risk = [];
         var values_risk = [];
@@ -148,6 +175,10 @@ $.ajax({
         for (const [key, value] of Object.entries(res["risk-age"])) {
             labels_risk.push(key);
             values_risk.push(value);
+
+            $("#age-risk").append(
+                "<li>" + value + "% of " + key + " have a good risk </li>"
+            );
         }
         var ctxGreen = document
             .getElementById("chartLineGreen")
@@ -282,7 +313,7 @@ $.ajax({
                         pointBorderColor: "transparent",
                         pointBorderWidth: 0,
                         backgroundColor: "transparent",
-                        data: [1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2],
+                        data: [1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25],
                         order: 2,
                     },
                     {
@@ -308,10 +339,12 @@ $.ajax({
             $("#DemographicsCard").hide();
             $("#analyticsCard").show();
             $("#dataset-show").hide();
+            $(".total-people").hide();
         });
 
         $("#analyticsDemo").click(function () {
             $("#DemographicsCard").show();
+            $(".total-people").show();
             $("#analyticsCard").hide();
             $("#dataset-show").show();
             $(".gender-table").show();
@@ -327,6 +360,7 @@ $.ajax({
             myChartData.data.datasets[2].hidden = true;
 
             $("#firstChart").html("Accuracy");
+            $(".row-documentation .card-doc").html("");
             myChartData.update();
         });
         $("#dir").click(function () {
@@ -337,6 +371,14 @@ $.ajax({
             myChartData.data.datasets[2].hidden = true;
             $("#firstChart").html(
                 'Disparate Impact Age <h5 class="card-category">unprivileged group: Young <br>privileged group: Old </h5>'
+            );
+
+            $(".row-documentation .card-doc").html(
+                "Computed as the ratio of rate of favorable outcome for the unprivileged group to that of the privileged group.\n" +
+                    "                                        The ideal value of this metric is 1.0<br> A value &lt; 1 implies higher benefit for\n" +
+                    "                                        the privileged group and a value &gt; 1 implies a higher benefit for the\n" +
+                    "                                        unprivileged group.<br>\n" +
+                    "                                        Fairness for this metric is between 0.8 and 1.25"
             );
             myChartData.update();
         });
@@ -349,6 +391,13 @@ $.ajax({
 
             $("#firstChart").html(
                 'Disparate Impact Gender <h5 class="card-category">unprivileged group: Female <br>privileged group: Male </h5>'
+            );
+            $(".row-documentation .card-doc").html(
+                "Computed as the ratio of rate of favorable outcome for the unprivileged group to that of the privileged group.\n" +
+                    "                                        The ideal value of this metric is 1.0<br> A value &lt; 1 implies higher benefit for\n" +
+                    "                                        the privileged group and a value &gt; 1 implies a higher benefit for the\n" +
+                    "                                        unprivileged group.<br>\n" +
+                    "                                        Fairness for this metric is between 0.8 and 1.25"
             );
             myChartData.update();
         });
@@ -606,42 +655,5 @@ custom = {
             },
             responsive: true,
         };
-
-        var ctx = document.getElementById("chartLinePurple").getContext("2d");
-
-        var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
-
-        gradientStroke.addColorStop(1, "rgba(72,72,176,0.2)");
-        gradientStroke.addColorStop(0.2, "rgba(72,72,176,0.0)");
-        gradientStroke.addColorStop(0, "rgba(119,52,169,0)"); //purple colors
-
-        var data = {
-            labels: ["JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
-            datasets: [
-                {
-                    label: "Data",
-                    fill: true,
-                    backgroundColor: gradientStroke,
-                    borderColor: "#d048b6",
-                    borderWidth: 2,
-                    borderDash: [],
-                    borderDashOffset: 0.0,
-                    pointBackgroundColor: "#d048b6",
-                    pointBorderColor: "rgba(255,255,255,0)",
-                    pointHoverBackgroundColor: "#d048b6",
-                    pointBorderWidth: 20,
-                    pointHoverRadius: 4,
-                    pointHoverBorderWidth: 15,
-                    pointRadius: 4,
-                    data: [80, 100, 70, 80, 120, 80],
-                },
-            ],
-        };
-
-        var myChart = new Chart(ctx, {
-            type: "line",
-            data: data,
-            options: gradientChartOptionsConfigurationWithTooltipPurple,
-        });
     },
 };

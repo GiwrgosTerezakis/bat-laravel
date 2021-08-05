@@ -2877,6 +2877,7 @@ pre {
 }
 svg#Feedback {
     width: 50px;
+    fill: white;
 }
 
 body {
@@ -3356,7 +3357,7 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
 
 .navbar .navbar-brand {
     position: fixed;
-    color: #000;
+    color: #fff;
     margin-left: 17px;
     margin-top: -15px;
     text-transform: uppercase;
@@ -4700,7 +4701,7 @@ table.tablesorter thead tr .headerSortDown {
 .footer .copyright {
     font-size: 0.8571em;
     line-height: 1.8;
-    color: #000;
+    color: #fff;
     font-weight: 500;
 }
 
@@ -6810,5 +6811,3 @@ table.tablesorter thead tr .headerSortDown {
 .white-content .main-panel .footer .copyright {
     color: #1d253b;
 }
-
-/*# sourceMappingURL=dashboard-free.css.map */
