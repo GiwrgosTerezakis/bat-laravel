@@ -13,6 +13,33 @@ function scrollFunction() {
     }
 }
 
+function findPos(number) {
+    return Math.abs(number - 0.8);
+}
+
+function findBestMlModel(data) {
+    bestDIG = [];
+    bestDIR = [];
+    data.forEach(function (item) {
+        posDIG = findPos(item.DIAGE);
+        posDIR = findPos(item.DIGender);
+
+        if (bestDIG.length == 0 && bestDIR.length == 0) {
+            bestDIG = [item.model, posDIG];
+            bestDIR = [item.model, posDIR];
+        } else {
+            if (posDIG < bestDIG[1]) {
+                bestDIG = [item.model, posDIG];
+            }
+            if (posDIR < bestDIR[1]) {
+                bestDIR = [item.model, posDIR];
+            }
+        }
+    });
+
+    return [bestDIG, bestDIR];
+}
+
 type = ["primary", "info", "success", "warning", "danger"];
 gradientBarChartConfiguration = {
     maintainAspectRatio: false,
@@ -254,12 +281,44 @@ $.ajax({
         var accs = [];
         var dig = [];
         var dia = [];
+        var previousAcc = 0;
+        var bestAccModel;
         data.forEach(function (arrItem) {
+            if (arrItem.acc > previousAcc) {
+                previousAcc = arrItem.acc;
+                bestAccModel = arrItem.model;
+            } else if (arrItem.acc == previousAcc) {
+                bestAccModel = bestAccModel.concat(" and ", arrItem.model);
+            }
             models.push(arrItem.model);
             accs.push(arrItem.acc);
             dia.push(arrItem.DIAGE);
             dig.push(arrItem.DIGender);
         });
+
+        const [bestDIAGE, bestDIGender] = findBestMlModel(data);
+
+        $(".best-model-dim").html(
+            "<span style='color:#eea3b5;'>" +
+                bestAccModel +
+                "</span> is the most accurate Machine Learning Model"
+        );
+
+        $(".best-model-dig").html(
+            "<span style='color:#eea3b5;'>" +
+                bestDIAGE[0] +
+                "</span> is the fairest Machine Learning Model"
+        );
+
+        $(".best-model-dir").html(
+            "<span style='color:#eea3b5;'>" +
+                bestDIGender[0] +
+                "</span> is the fairest Machine Learning Model"
+        );
+
+        $(".best-model-dim").show();
+        $(".best-model-dig").hide();
+        $(".best-model-dir").hide();
 
         var chart_labels = models;
         var chart_data = accs;
@@ -353,6 +412,9 @@ $.ajax({
             $(".risk-table-age").show();
         });
         $("#chacc").click(function () {
+            $(".best-model-dim").show();
+            $(".best-model-dig").hide();
+            $(".best-model-dir").hide();
             myChartData.data.datasets[3].hidden = true;
             myChartData.data.datasets[4].hidden = true;
             myChartData.data.datasets[0].hidden = false;
@@ -364,6 +426,9 @@ $.ajax({
             myChartData.update();
         });
         $("#dir").click(function () {
+            $(".best-model-dim").hide();
+            $(".best-model-dig").hide();
+            $(".best-model-dir").show();
             myChartData.data.datasets[3].hidden = false;
             myChartData.data.datasets[4].hidden = false;
             myChartData.data.datasets[1].hidden = false;
@@ -383,6 +448,9 @@ $.ajax({
             myChartData.update();
         });
         $("#dig").click(function () {
+            $(".best-model-dim").hide();
+            $(".best-model-dig").show();
+            $(".best-model-dir").hide();
             myChartData.data.datasets[3].hidden = false;
             myChartData.data.datasets[4].hidden = false;
             myChartData.data.datasets[2].hidden = false;

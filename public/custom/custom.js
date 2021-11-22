@@ -1,6 +1,32 @@
 window.onscroll = function () {
     scrollFunction();
 };
+function findPos(number) {
+    return Math.abs(number - 0.8);
+}
+
+function findBestMlModel(data) {
+    bestDIG = [];
+    bestDIR = [];
+    data.forEach(function (item) {
+        posDIG = findPos(item.DIGender);
+        posDIR = findPos(item.DIRace);
+
+        if (bestDIG.length == 0 && bestDIR.length == 0) {
+            bestDIG = [item.model, posDIG];
+            bestDIR = [item.model, posDIR];
+        } else {
+            if (posDIG < bestDIG[1]) {
+                bestDIG = [item.model, posDIG];
+            }
+            if (posDIR < bestDIR[1]) {
+                bestDIR = [item.model, posDIR];
+            }
+        }
+    });
+
+    return [bestDIG, bestDIR];
+}
 mybutton = document.getElementById("ScrollToTop");
 function scrollFunction() {
     if (
@@ -273,7 +299,15 @@ $.ajax({
         var accs = [];
         var dig = [];
         var dir = [];
+        var previousAcc = 0;
+        var bestAccModel;
         data.forEach(function (arrItem) {
+            if (arrItem.acc > previousAcc) {
+                previousAcc = arrItem.acc;
+                bestAccModel = arrItem.model;
+            } else if (arrItem.acc == previousAcc) {
+                bestAccModel = bestAccModel.concat(" and ", arrItem.model);
+            }
             models.push(arrItem.model);
             accs.push(arrItem.acc);
             dir.push(arrItem.DIRace);
@@ -284,6 +318,30 @@ $.ajax({
         var chart_data = accs;
         var chart_data1 = dir;
         var chart_data2 = dig;
+
+        const [bestDIG, bestDIR] = findBestMlModel(data);
+
+        $(".best-model-dim").html(
+            "<span style='color:lightseagreen;'>" +
+                bestAccModel +
+                "</span> are the most accurate Machine Learning Models"
+        );
+
+        $(".best-model-dig").html(
+            "<span style='color:lightseagreen;'>" +
+                bestDIG[0] +
+                "</span> is the fairest Machine Learning Model"
+        );
+
+        $(".best-model-dir").html(
+            "<span style='color:lightseagreen;'>" +
+                bestDIR[0] +
+                "</span> is the fairest Machine Learning Model"
+        );
+
+        $(".best-model-dim").show();
+        $(".best-model-dig").hide();
+        $(".best-model-dir").hide();
 
         var ctx = document.getElementById("chartBig1").getContext("2d");
 
@@ -372,6 +430,9 @@ $.ajax({
             $(".race-table-risk").show();
         });
         $("#chacc").click(function () {
+            $(".best-model-dim").show();
+            $(".best-model-dig").hide();
+            $(".best-model-dir").hide();
             myChartData.data.datasets[3].hidden = true;
             myChartData.data.datasets[4].hidden = true;
             myChartData.data.datasets[0].hidden = false;
@@ -382,6 +443,9 @@ $.ajax({
             myChartData.update();
         });
         $("#dir").click(function () {
+            $(".best-model-dim").hide();
+            $(".best-model-dig").hide();
+            $(".best-model-dir").show();
             myChartData.data.datasets[3].hidden = false;
             myChartData.data.datasets[4].hidden = false;
             myChartData.data.datasets[1].hidden = false;
@@ -402,6 +466,9 @@ $.ajax({
             myChartData.update();
         });
         $("#dig").click(function () {
+            $(".best-model-dim").hide();
+            $(".best-model-dig").show();
+            $(".best-model-dir").hide();
             myChartData.data.datasets[3].hidden = false;
             myChartData.data.datasets[4].hidden = false;
             myChartData.data.datasets[2].hidden = false;

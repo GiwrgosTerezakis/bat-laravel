@@ -133,12 +133,25 @@
                                         </h5>
                                     </div>
 
+
+
                                 </div>
                             </div>
                             <div class="card-body">
                                 <div class="chart-area" id="chart1-area">
                                     <div class="lds-dual-ring"></div>
                                     <canvas id="chartBig1"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="row row-documentation">
+                                <div class="col-lg-12 ">
+                                    <h4 class="card-title best-model-dim" style="text-align: center;padding: 0 50px;">
+                                    </h4>
+                                    <h4 class="card-title best-model-dig" style="text-align: center;padding: 0 50px;">
+                                    </h4>
+                                    <h4 class="card-title best-model-dir" style="text-align: center;padding: 0 50px;">
+                                    </h4>
                                 </div>
                             </div>
                         </div>
