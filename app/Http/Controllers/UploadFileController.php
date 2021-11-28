@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use Spatie\SimpleExcel\SimpleExcelReader;
+use Illuminate\Support\Facades\File;
+
 
 class UploadFileController extends Controller
 {
@@ -72,7 +74,8 @@ class UploadFileController extends Controller
             'unprivileged' => $request->get('Unprivileged'),
             'analysis' => $request->get('Analysis'),
             'encode' =>$request->get('encode'),
-            'dropFirstColumn' =>$request->get('dropFirstColumn')
+            'dropFirstColumn' =>$request->get('dropFirstColumn'),
+            'deleteAfter' => $request->get('deleteAfter'),
         ];
 
         $i = -1;
@@ -111,6 +114,15 @@ class UploadFileController extends Controller
         }
 
         return response()->json($attributes_to_show);
+    }
+
+    public function deleteCsv(Request $request)
+    {
+        $location = 'files';
+        $file = $location .'/' . $request->get('filename');
+
+        File::delete($file);
+
     }
 
 }

@@ -803,6 +803,17 @@
 
                 },
             };
+
+            if(dataToSend['deleteAfter']){
+                $.ajax({
+                    url: '/delete-csv',
+                    type: 'GET',
+                    data: { filename: dataToSend['filename']} ,
+                    success: function () {
+
+                    },
+                })
+            }
         </script>
     @endif
     <script>

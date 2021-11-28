@@ -196,6 +196,19 @@
 
                                         </select>
 
+                                        <label style="color: black !important;" for="deleteAfter">Delete Dataset After Analysis?
+                                        </label>
+                                        <select style="color:#000 !important;" name="deleteAfter" id="deleteAfter">
+
+                                            <option style="color: black !important;" value="1">
+                                                Yes
+                                            </option>
+                                            <option style="color: black !important;" value="0" selected>
+                                                No
+                                            </option>
+
+                                        </select>
+
                                     </div>
                                     <div class="modal-footer d-flex justify-content-center">
                                         <button class=" btn-import-excel attributes">Audit</button>
