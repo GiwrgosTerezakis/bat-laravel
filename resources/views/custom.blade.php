@@ -331,9 +331,18 @@
             $('#card-title2-h2').append('<p>' + sensitive + ' | ' + target + '</p>');
             $('#title-of-custom').append(filename);
             $.ajax({
-                url: 'https://bat-django.herokuapp.com/custom/' + filename + '/' + sensitive + '/' + analysis + '/' +
-                    target + '/' + privileged + '/' + unprivileged + '/' + dropFirstColumn + '/' + encode,
+                url: 'https://bat-django.herokuapp.com/custom/',
                 type: 'GET',
+                data: {
+                    filename: dataToSend['filename'].split('.').slice(0, -1).join('.'),
+                    sensitive:  dataToSend['sensitive'],
+                    analysis:  dataToSend['analysis'],
+                    target:  dataToSend['target'],
+                    privileged:  dataToSend['privileged'],
+                    unprivileged:  dataToSend['unprivileged'],
+                    dropFirstColumn:  dataToSend['dropFirstColumn'],
+                    encode:  dataToSend['encode'],
+                },
                 dataType: 'json',
                 beforeSend: function() {
                     $('#chart1-area').append('<span class="basel-spinner ajax-call"></span>');
