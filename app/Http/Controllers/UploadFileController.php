@@ -75,8 +75,9 @@ class UploadFileController extends Controller
             'analysis' => $request->get('Analysis'),
             'encode' =>$request->get('encode'),
             'dropFirstColumn' =>$request->get('dropFirstColumn'),
-            'deleteAfter' => $request->get('deleteAfter'),
+            'deleteAfter' => $request->get('deleteAfter')=='1',
         ];
+
 
         $i = -1;
         $sampleData = [];
