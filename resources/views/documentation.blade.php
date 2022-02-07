@@ -156,7 +156,7 @@
                                 You can upload yours too <a href="/" target="_blank">here! </a> <br>You can get
                                 information of other datasets also from other developers.<br>
                                 Uploaded Datasets: (titanic)<br>
-                                <small>Example Request:  <a href="https://bat-django.herokuapp.com/custom/?filename=titanic&sensitive=Pclass&analysis=Pclass&target=Survived&privileged=1&unprivileged=3&dropFirstColumn=1&encode=1" target="_blank">   https://bat-django.herokuapp.com/custom/?filename=titanic&sensitive=Pclass&analysis=Pclass&target=Survived&privileged=1&unprivileged=3&dropFirstColumn=1&encode=1  </a> </small>
+                                <small>Example Request:   </small>
                             </p>
 
                             <pre>
