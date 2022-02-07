@@ -50,10 +50,12 @@ html, body {
     color: #95a5a6;
 }
 
+
 .nav-link:link {
     color: #30336b;
     margin-top: 10px;
     padding-left: 30px;
+    text-decoration: underline;
 }
 .nav-link:hover,
 .nav-link:active {
