@@ -107,6 +107,17 @@
                                     <canvas id="chartBig1"></canvas>
                                 </div>
                             </div>
+
+                            <div class="row row-documentation">
+                                <div class="col-lg-12 ">
+                                    <h4 class="card-title best-model-dim" style="text-align: center;padding: 0 50px;">
+                                    </h4>
+                                    <h4 class="card-title best-model-dig" style="text-align: center;padding: 0 50px;">
+                                    </h4>
+                                </div>
+                            </div>
+
+
                         </div>
                     </div>
                 </div>
@@ -267,6 +278,31 @@
     @if (!empty($dataToSend))
 
         <script>
+            function findPos(number) {
+                return Math.abs(number - 0.8);
+            }
+
+            function findBestMlModel(data) {
+
+                let bestDIG = [];
+
+                    $.map(data, function(val, key) {
+                    if (key !== 'analysis' && key !== 'total_count' && key !== 'check-priv') {
+                        let posDIG = findPos(val.disparate_impact);
+
+                        if (bestDIG.length === 0) {
+                            bestDIG = [val.model, posDIG];
+                        } else {
+                            if (posDIG < bestDIG[1]) {
+                                bestDIG = [val.model, posDIG];
+                            }
+
+                        }
+                    }
+                });
+
+                return bestDIG;
+            }
             //console.log(filename);
 
             type = ['primary', 'info', 'success', 'warning', 'danger'];
@@ -367,7 +403,7 @@
                     let labelsToShowRisk = [];
                     let dataToShowRisk = [];
                     $.map(analysis_risk, function(val, key) {
-                        if (key == "privileged") {
+                        if (key === "privileged") {
 
                             labelsToShowRisk.push(privileged)
                         } else {
@@ -438,21 +474,57 @@
                     var accs = [];
                     var dig = [];
                     var dia = [];
+                    let previousAcc = 0;
+                    let bestAccModel;
+                    let multipleM = false;
                     $.map(dataModels, function(val, key) {
                         if (key !== 'analysis' && key !== 'total_count' && key !== 'check-priv') {
+
+                            if (val.acc > previousAcc) {
+                                previousAcc = val.acc;
+                                bestAccModel = val.model;
+                            } else if (val.acc === previousAcc) {
+                                multipleM = true;
+                                bestAccModel = bestAccModel.concat(" and ", val.model);
+                            }
                             models.push(val.model);
                             accs.push(val.acc);
                             dia.push(val.disparate_impact)
                         }
 
-
                     })
+
+                    if(multipleM){
+                        $(".best-model-dim").html(
+                            "<span style='color:lightseagreen;'>" +
+                            bestAccModel +
+                            "</span> are the most accurate Machine Learning Models"
+                        );
+                    }else{
+                        $(".best-model-dim").html(
+                            "<span style='color:lightseagreen;'>" +
+                            bestAccModel +
+                            "</span> is the most accurate Machine Learning Model"
+                        );
+                    }
+
+                    const  bestDIG = findBestMlModel(dataModels);
+
+
+
+                    $(".best-model-dig").html(
+                        "<span style='color:lightseagreen;'>" +
+                        bestDIG[0] +
+                        "</span> is the fairest Machine Learning Model"
+                    );
 
 
                     var chart_labels = models;
                     var chart_data = accs;
                     var chart_data1 = dia;
 
+                    $(".best-model-dim").show();
+                    $(".best-model-dig").hide();
 
                     var ctx = document.getElementById("chartBig1").getContext('2d');
 
@@ -528,6 +600,8 @@
                     });
 
                     $('#chacc').click(function() {
+                        $(".best-model-dim").show();
+                        $(".best-model-dig").hide();
                         myChartData.data.datasets[2].hidden = true;
                         myChartData.data.datasets[3].hidden = true;
                         myChartData.data.datasets[0].hidden = false;
@@ -538,6 +612,8 @@
                     });
 
                     $('#dig').click(function() {
+                        $(".best-model-dim").hide();
+                        $(".best-model-dig").show();
                         myChartData.data.datasets[2].hidden = false;
                         myChartData.data.datasets[3].hidden = false;
                         myChartData.data.datasets[1].hidden = false;

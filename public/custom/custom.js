@@ -6,13 +6,13 @@ function findPos(number) {
 }
 
 function findBestMlModel(data) {
-    bestDIG = [];
-    bestDIR = [];
+    let bestDIG = [];
+    let bestDIR = [];
     data.forEach(function (item) {
-        posDIG = findPos(item.DIGender);
-        posDIR = findPos(item.DIRace);
+        let posDIG = findPos(item.DIGender);
+        let posDIR = findPos(item.DIRace);
 
-        if (bestDIG.length == 0 && bestDIR.length == 0) {
+        if (bestDIG.length === 0 && bestDIR.length === 0) {
             bestDIG = [item.model, posDIG];
             bestDIR = [item.model, posDIR];
         } else {
