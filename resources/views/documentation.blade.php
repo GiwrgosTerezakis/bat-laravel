@@ -69,7 +69,7 @@
                             </p>
                         </article>
                     </section>
-
+                    <hr>
                     <section class="main-section" id="compas">
                         <header>
                             <h2>COMPAS</h2>
@@ -84,7 +84,7 @@
 
                             <pre>
     <code>
-<span class="destinationMethod get">GET</span>  https://bat-django.herokuapp.com/Compas/Ml</code>
+<a href="https://bat-django.herokuapp.com/Compas/Ml" target="_blank"><span class="destinationMethod get">GET</span></a>  https://bat-django.herokuapp.com/Compas/Ml</code>
   </pre>
                             <h3>Gender</h3>
                             <p>This request provides you the results of Gender Distribution of the Dataset
@@ -92,7 +92,7 @@
 
                             <pre>
     <code>
-   <span class="destinationMethod get">GET</span>  https://bat-django.herokuapp.com/Compas/Gender</code>
+  <a href="https://bat-django.herokuapp.com/Compas/Gender" target="_blank"> <span class="destinationMethod get">GET</span></a>  https://bat-django.herokuapp.com/Compas/Gender</code>
   </pre>
 
 
@@ -102,12 +102,12 @@
 
                             <pre>
     <code>
-<span class="destinationMethod get">GET</span>  https://bat-django.herokuapp.com/Compas/Race</code>
+<a href="https://bat-django.herokuapp.com/Compas/Race" target="_blank"><span class="destinationMethod get">GET</span> </a> https://bat-django.herokuapp.com/Compas/Race</code>
   </pre>
 
                         </article>
                     </section>
-
+            <hr>
                     <section class="main-section" id="credit_risk">
                         <header>
                             <h2>Credit Risk</h2>
@@ -122,7 +122,7 @@
                             </p>
                             <pre>
     <code>
-<span class="destinationMethod get">GET</span> https://bat-django.herokuapp.com/German/Ml</code>
+<a href="https://bat-django.herokuapp.com/German/Ml" target="_blank"><span class="destinationMethod get">GET</span></a> https://bat-django.herokuapp.com/German/Ml</code>
   </pre>
                             <h3>Gender</h3>
                             <p>This request provides you the results of Gender Distribution of the Dataset
@@ -130,7 +130,7 @@
 
                             <pre>
                         <code>
-                     <span class="destinationMethod get">GET</span>    https://bat-django.herokuapp.com/credit-risk/gender</code>
+                     <a href="https://bat-django.herokuapp.com/credit-risk/gender" target="_blank"><span class="destinationMethod get">GET</span> </a>   https://bat-django.herokuapp.com/credit-risk/gender</code>
                       </pre>
 
 
@@ -140,11 +140,12 @@
 
                             <pre>
                         <code>
-              <span class="destinationMethod get">GET</span>       https://bat-django.herokuapp.com/credit-risk/bad-good</code>
+              <a href="https://bat-django.herokuapp.com/credit-risk/bad-good" target="_blank"><span class="destinationMethod get">GET</span> </a>      https://bat-django.herokuapp.com/credit-risk/bad-good</code>
                       </pre>
 
                         </article>
                     </section>
+                    <hr>
                     <section class="main-section" id="custom_dataset">
                         <header>
                             <h2>Custom Dataset</h2>
@@ -154,16 +155,13 @@
                             <p>This tool enables developers to upload their dataset and analyze it for them. <br>
                                 You can upload yours too <a href="/" target="_blank">here! </a> <br>You can get
                                 information of other datasets also from other developers.<br>
-                                Uploaded Datasets: (titanic.csv)<br>
-                                <small>Example Request: <a
-                                        href="https://bat-django.herokuapp.com/custom/titanic/Pclass/Survived/Survived/1/3/1/1/"
-                                        target="_blank">https://bat-django.herokuapp.com/custom/titanic/Pclass/Survived/Survived/1/3/1/1
-                                    </a> </small>
+                                Uploaded Datasets: (titanic)<br>
+                                <small>Example Request:   </small>
                             </p>
 
                             <pre>
     <code>
-    <span class="destinationMethod get">GET</span>     https://bat-django.herokuapp.com/custom/<span style="color:#8de1de; !important;">{filename}</span>/<span style="color:#8de1de; !important;">{sensitive}</span>/<span style="color:#8de1de; !important;">{analysis}</span>/<span style="color:#8de1de; !important;">{target}</span>/<span style="color:#8de1de; !important;">{privileged}</span>/<span style="color:#8de1de; !important;">{unprivileged}</span>/<span style="color:#8de1de; !important;">{dropFirstColumn}</span>/<span style="color:#8de1de; !important;">{encode}</span></code>
+    <a target="_blank" href="https://bat-django.herokuapp.com/custom/?filename=titanic&sensitive=Pclass&analysis=Pclass&target=Survived&privileged=1&unprivileged=3&dropFirstColumn=1&encode=1"><span class="destinationMethod get">GET</span>  </a>   https://bat-django.herokuapp.com/custom/filename=<span style="color:#8de1de; !important;">{filename}</span>/sensitive=<span style="color:#8de1de; !important;">{sensitive}</span>/analysis=<span style="color:#8de1de; !important;">{analysis}</span>/target=<span style="color:#8de1de; !important;">{target}</span>/privileged<span style="color:#8de1de; !important;">{privileged}</span>/unprivileged=<span style="color:#8de1de; !important;">{unprivileged}</span>/dropFirstColumn=<span style="color:#8de1de; !important;">{dropFirstColumn}</span>/encode=<span style="color:#8de1de; !important;">{encode}</span></code>
   </pre>
 
                         </article>
@@ -174,7 +172,7 @@
                 <hr>
                 <footer>
 
-                    <p>&copy 2021 Research of a System for Βias Identification in Machine Learning, University of Patras
+                    <p>&copy 2022 Research of a System for Βias Identification in Machine Learning, University of Patras
                     </p>
                 </footer>
 
